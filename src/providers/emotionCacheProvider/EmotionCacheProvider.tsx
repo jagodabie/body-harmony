@@ -1,7 +1,7 @@
 "use client";
 
 import { CacheProvider } from "@emotion/react";
-import { createEmotionCache } from "@/globals/emotionCache";
+import { createEmotionCache } from "@/lib/emotionCache";
 import React, { ReactNode, useState } from "react";
 
 type EmotionCacheProviderProps = {

@@ -1,7 +1,7 @@
 import React, { ReactNode, useState, useContext } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
-import { lightTheme, darkTheme } from "@/globals/themes";
+import { lightTheme, darkTheme } from "@/lib/themes";
 
 type Theme = "light" | "dark";
 
