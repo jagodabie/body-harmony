@@ -1,9 +1,9 @@
 import Home from "@/app/page";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "../../../custom-render";
 
 test("Home component", () => {
   render(<Home />);
-  //  debug method from react testing library
   screen.debug();
 
   const title = screen.getByText("Hello main");
