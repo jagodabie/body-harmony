@@ -1,12 +1,11 @@
 import React, { ReactNode, useState, useContext } from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { lightTheme, darkTheme } from "@/lib/themes";
+import { ThemeProvider } from "@mui/material";
 
-type Theme = "light" | "dark";
+import { Theme } from "@/types/index";
 
 type ThemeContextType = {
-  theme: Theme;
+  theme: (typeof Theme)[keyof typeof Theme];
   toggleTheme: () => void;
 };
 
@@ -27,7 +26,8 @@ type ThemeContextProviderProps = {
 };
 
 export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] =
+    useState<(typeof Theme)[keyof typeof Theme]>("light");
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -37,11 +37,7 @@ export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <StyledThemeProvider theme={currentTheme}>
-        <EmotionThemeProvider theme={currentTheme}>
-          {children}
-        </EmotionThemeProvider>
-      </StyledThemeProvider>
+      <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
 }
