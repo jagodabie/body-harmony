@@ -3,12 +3,12 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Theme } from "@/types";
 
-type ToggleButtonProps = {
+type CustomSwitchProps = {
   theme: keyof Theme;
   toggleTheme: () => void;
 };
 
-export const ToggleButton = ({ theme, toggleTheme }: ToggleButtonProps) => {
+export const CustomSwitch = ({ theme, toggleTheme }: CustomSwitchProps) => {
   return (
     <>
       <Switch

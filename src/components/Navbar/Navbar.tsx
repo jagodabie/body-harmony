@@ -9,7 +9,7 @@ import Link from "next/link";
 import { NavItem } from "@/types";
 import useScreenSize from "@/hooks/useScreenSize";
 
-import { ToggleButton } from "./components/ToggleButton/ToggleButton";
+import { CustomSwitch } from "./components/CustomSwitch/CustomSwitch";
 
 import "./index.css";
 
@@ -31,7 +31,7 @@ export const Navigation = ({ navItems }: NavigationProps) => {
 
   return (
     <nav>
-      <ToggleButton theme={theme} toggleTheme={toggleTheme} />
+      <CustomSwitch theme={theme} toggleTheme={toggleTheme} />
       {isMobile && (
         <div
           className="hamburger-icon"
