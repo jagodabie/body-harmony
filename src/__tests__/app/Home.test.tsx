@@ -4,7 +4,6 @@ import { render } from "../../../custom-render";
 
 test("Home component", () => {
   render(<Home />);
-  screen.debug();
 
   const title = screen.getByText("Hello main");
   expect(title).toBeInTheDocument();
