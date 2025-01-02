@@ -1,19 +1,13 @@
 "use client";
 
 import { useState } from "react";
-
-import CloseIcon from "@mui/icons-material/Close";
-import MenuIcon from "@mui/icons-material/Menu";
-import Link from "next/link";
-
-import { NavItem } from "@/types";
 import useScreenSize from "@/hooks/useScreenSize";
-
-import { CustomSwitch } from "./components/CustomSwitch/CustomSwitch";
+import { NavItem } from "@/types";
 
 import "./index.css";
-
-import { useTheme } from "@/providers/themeProvider/ThemeProvider";
+import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";
+import { HamburgerMenu } from "./components/HamburgerMenu/HamburgerMenu";
+import { NavList } from "./components/NavList/NavList";
 
 type NavigationProps = {
   navItems: NavItem[];
@@ -21,36 +15,17 @@ type NavigationProps = {
 
 export const Navigation = ({ navItems }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const { isMobile } = useScreenSize();
-  const { theme, toggleTheme } = useTheme();
 
-  const handleHamburgerClick = () => {
-    setIsMenuOpen((prevState) => !prevState);
-  };
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
     <nav>
-      <CustomSwitch theme={theme} toggleTheme={toggleTheme} />
+      <ThemeSwitcher />
       {isMobile && (
-        <div
-          className="hamburger-icon"
-          onClick={handleHamburgerClick}
-          aria-label="Open menu"
-          role="menu"
-        >
-          {isMobile && (isMenuOpen ? <CloseIcon /> : <MenuIcon />)}
-        </div>
+        <HamburgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
       )}
-      <ul className={`nav-list ${isMenuOpen ? "open" : ""}`}>
-        {navItems?.map(({ label, href }) => (
-          <li key={label} className="nav-list-item">
-            <Link href={href} className="nav-link">
-              {label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <NavList navItems={navItems} isMenuOpen={isMenuOpen} />
     </nav>
   );
 };

@@ -4,7 +4,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Theme } from "@/types";
 
 type CustomSwitchProps = {
-  theme: keyof Theme;
+  theme: keyof (typeof Theme)[keyof typeof Theme];
   toggleTheme: () => void;
 };
 
