@@ -1,0 +1,56 @@
+import { Switch } from "@mui/material";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { Theme } from "@/types";
+
+type ToggleButtonProps = {
+  theme: keyof Theme;
+  toggleTheme: () => void;
+};
+
+export const ToggleButton = ({ theme, toggleTheme }: ToggleButtonProps) => {
+  return (
+    <>
+      <Switch
+        checked={theme === Theme.DARK}
+        disableRipple
+        inputProps={{
+          "aria-label": "enable dark mode",
+        }}
+        icon={
+          <LightModeIcon
+            sx={{
+              fontSize: "0.9rem",
+              margin: "4px 0 0",
+              color: "#212f3c",
+              width: "1.5rem",
+            }}
+          />
+        }
+        checkedIcon={
+          <DarkModeIcon
+            sx={{
+              fontSize: "1rem",
+              margin: "3px 0 0",
+              color: "white",
+            }}
+          />
+        }
+        onChange={toggleTheme}
+        sx={{
+          "&.MuiSwitch-root": {
+            height: "40px",
+          },
+          "& .MuiSwitch-track": {
+            backgroundColor: "#eaecee",
+            border: "1px solid #566573",
+          },
+          "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+            backgroundColor: "transparent",
+            border: "1px solid white",
+          },
+        }}
+      />
+    </>
+  );
+};

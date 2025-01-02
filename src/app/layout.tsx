@@ -34,7 +34,6 @@ export default function RootLayout({
         <body>
           <header>
             <Navigation
-              isMobile={true}
               navItems={[
                 { label: "Main", href: "/" },
                 { label: "About us", href: "/about" },
