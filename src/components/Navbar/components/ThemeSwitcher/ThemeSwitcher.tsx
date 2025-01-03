@@ -1,3 +1,4 @@
+"use client";
 import { CustomSwitch } from "@/components/ui/CustomSwitch/CustomSwitch";
 import { useTheme } from "@/providers/themeProvider/ThemeProvider";
 

@@ -14,6 +14,19 @@ export const lightTheme = createTheme({
       main: "#0070f3",
     },
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          "--background-default": "#ffffff",
+          "--background-paper": "#f5f5f5",
+          "--text-primary": "#17202a",
+          "--primary-main": "#0070f3",
+          "--box-shadow": "0 0 10px 0 rgba(0, 0, 0, 0.1)",
+        },
+      },
+    },
+  },
 });
 
 export const darkTheme = createTheme({
@@ -28,6 +41,19 @@ export const darkTheme = createTheme({
     },
     primary: {
       main: "#79b8ff",
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          "--background-default": "#17202a",
+          "--background-paper": "#121212",
+          "--text-primary": "#ffffff",
+          "--primary-main": "#79b8ff",
+          "--box-shadow": "0 0 10px 0 rgba(236, 221, 221, 0.1)",
+        },
+      },
     },
   },
 });

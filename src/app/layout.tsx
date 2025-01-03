@@ -1,5 +1,5 @@
 import { Footer } from "@/components/Footer/Footer";
-import { Navigation } from "@/components/Navbar/Navbar";
+import { NavBarWrapper } from "@/components/Navbar/NavBarWrapper";
 import AppProvider from "@/providers/appProviders/AppProviders";
 import { Metadata } from "next";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
         </head>
         <body>
           <header>
-            <Navigation
+            <NavBarWrapper
               navItems={[
                 { label: "Main", href: "/" },
                 { label: "About us", href: "/about" },

@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { NavItem } from "@/types";
 import "@testing-library/jest-dom";
-import { NavList } from "@/components/Navbar/components/NavList/NavList";
+import { NavList } from "@/components/Navbar/components/Navigation/Navigation";
 import { render } from "../../../../custom-render";
 
 const mockNavItems: NavItem[] = [
