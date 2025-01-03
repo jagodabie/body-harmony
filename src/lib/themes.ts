@@ -1,5 +1,13 @@
 import { createTheme } from "@mui/material/styles";
 
+// Wspólne style
+const commonStyles = {
+  "--font-size": "1rem",
+  "--font-weight-400": "400",
+  "--font-weight-500": "500",
+  "--font-weight-600": "600",
+};
+
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
@@ -18,6 +26,7 @@ export const lightTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
+          ...commonStyles,
           "--background-default": "#ffffff",
           "--background-paper": "#f5f5f5",
           "--text-primary": "#17202a",
@@ -47,6 +56,7 @@ export const darkTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
+          ...commonStyles,
           "--background-default": "#17202a",
           "--background-paper": "#121212",
           "--text-primary": "#ffffff",

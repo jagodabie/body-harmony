@@ -6,6 +6,7 @@
   justify-content: center;
   margin: 0;
   padding: 0.8rem;
+  font-weight: var(--font-weight-400);
 }
 
 @media (max-width: 768px) {
@@ -37,7 +38,9 @@
 }
 
 .navbar__nav-link:hover {
+  opacity: 0.8;
   color: var(--primary-main);
+  cursor: pointer;
 }
 
 .navbar__wrapper,
@@ -48,7 +51,7 @@
 }
 
 .navbar__wrapper {
-  justify-content: space-between;
+  justify-content: center;
   background-color: var(--background-default);
   box-shadow: var(--box-shadow);
   padding: 0 20px;
@@ -59,11 +62,12 @@
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  margin-top: 7px;
 }
 
 .navbar__text {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-500);
   color: var(--text-primary);
 }
 
