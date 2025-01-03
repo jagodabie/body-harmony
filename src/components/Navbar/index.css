@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: 0;
+  padding: 0.8rem;
 }
 
 @media (max-width: 768px) {
@@ -22,9 +22,6 @@
     background: var(--background-default);
   }
 
-  .navbar__nav-item {
-    padding: 0.9rem;
-  }
   .navbar__nav-item,
   .navbar__nav-item:last-child {
     margin-right: 0;
