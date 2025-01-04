@@ -38,6 +38,7 @@ export default function RootLayout({
                 { label: "Main", href: "/" },
                 { label: "About us", href: "/about" },
                 { label: "Contact", href: "/contact" },
+                { label: "Form Config", href: "/formConfig" },
               ]}
             />
           </header>

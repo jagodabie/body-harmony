@@ -5,6 +5,6 @@ import { render } from "../../../custom-render";
 test("Home component", () => {
   render(<Home />);
 
-  const title = screen.getByText("Hello main");
+  const title = screen.getByText("This is the home page content.");
   expect(title).toBeInTheDocument();
 });

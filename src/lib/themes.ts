@@ -1,11 +1,20 @@
 import { createTheme } from "@mui/material/styles";
 
-// Wspólne style
 const commonStyles = {
   "--font-size": "1rem",
   "--font-weight-400": "400",
   "--font-weight-500": "500",
   "--font-weight-600": "600",
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
+  justifyContent: "space-between",
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 };
 
 export const lightTheme = createTheme({
