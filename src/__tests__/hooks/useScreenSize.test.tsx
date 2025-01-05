@@ -1,5 +1,6 @@
-import useScreenSize from '@/hooks/useScreenSize';
 import { renderHook } from '@testing-library/react';
+
+import useScreenSize from '@/hooks/useScreenSize';
 
 describe('useScreenSize hook', () => {
   beforeAll(() => {

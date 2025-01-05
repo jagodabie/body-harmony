@@ -1,6 +1,6 @@
-import { Switch } from "@mui/material";
-import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { Switch } from "@mui/material";
 
 import { Theme } from "@/types";
 

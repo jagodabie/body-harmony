@@ -1,18 +1,19 @@
 "use client";
-import { FieldType, Option } from "@/types/GenericFrom";
 import {
-  TextField,
-  Select,
   Checkbox,
-  Radio,
-  MenuItem,
+  FormControl,
   FormControlLabel,
-  RadioGroup,
   FormLabel,
   InputLabel,
-  FormControl,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  TextField,
   TextFieldVariants,
 } from "@mui/material";
+
+import { FieldType, Option } from "@/types/GenericFrom";
 
 type ComponentMapperProps = {
   type?: FieldType;

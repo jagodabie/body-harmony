@@ -1,5 +1,6 @@
-import AppLogoIcon from "@/assets/AppLogoIcon";
 import Link from "next/link";
+
+import AppLogoIcon from "@/assets/AppLogoIcon";
 
 const NavbarLogo = () => {
   return (

@@ -1,8 +1,9 @@
 "use client";
 
-import React, { ReactNode } from "react";
-import { ThemeContextProvider } from "../themeProvider/ThemeProvider";
 import { CssBaseline } from "@mui/material";
+import React, { ReactNode } from "react";
+
+import { ThemeContextProvider } from "../themeProvider/ThemeProvider";
 
 type AppProvidersProps = {
   children: ReactNode;

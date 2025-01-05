@@ -1,7 +1,8 @@
 "use client";
-import React, { createContext, useState, useContext, ReactNode } from "react";
-import { lightTheme, darkTheme } from "@/lib/themes";
 import { ThemeProvider } from "@mui/material";
+import React, { createContext, ReactNode, useContext, useState } from "react";
+
+import { darkTheme, lightTheme } from "@/lib/themes";
 
 type ThemeMode = "light" | "dark";
 

@@ -1,9 +1,11 @@
 "use client";
-import { useForm, FieldValues, Control } from "react-hook-form";
+import { Button } from "@mui/material";
+import { Control, FieldValues, useForm } from "react-hook-form";
+
 import { FormConfig } from "@/types/GenericFrom";
 
 import "./index.css";
-import { Button } from "@mui/material";
+
 import { FormFields } from "../FormFields/FormFields";
 
 export type GenericFormProps<T extends FieldValues> = {

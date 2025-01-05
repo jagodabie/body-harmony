@@ -1,7 +1,8 @@
+import { Metadata } from "next";
+
 import { Footer } from "@/components/Footer/Footer";
 import { NavBarWrapper } from "@/components/Navbar/NavBarWrapper";
 import AppProvider from "@/providers/appProviders/AppProviders";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "BodyHarmony – Zdrowie, Świadomość, Harmonia",

@@ -1,5 +1,7 @@
-import Home from "@/app/page";
 import { screen } from "@testing-library/react";
+
+import Home from "@/app/page";
+
 import { render } from "../../../custom-render";
 
 test("Home component", () => {

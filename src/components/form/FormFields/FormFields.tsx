@@ -1,6 +1,8 @@
-import { FieldConfig } from "@/types/GenericFrom";
-import FormField from "../RenderField/RenderField";
 import { Control } from "react-hook-form";
+
+import { FieldConfig } from "@/types/GenericFrom";
+
+import FormField from "../RenderField/RenderField";
 
 export const FormFields = ({
   fieldConfig,

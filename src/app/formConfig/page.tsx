@@ -1,6 +1,7 @@
 "use client";
-import { userFormConfig, UserFormData } from ".";
 import GenericForm from "@/components/form/GenericForm/GenericForm";
+
+import { userFormConfig, UserFormData } from ".";
 
 const UserRegistrationForm = () => {
   const handleFormSubmit = (data: UserFormData) => {

@@ -1,5 +1,6 @@
-import { ReactElement, ReactNode } from "react";
 import { render } from "@testing-library/react";
+import { ReactElement, ReactNode } from "react";
+
 import AppProviders from "@/providers/appProviders/AppProviders";
 
 const customRender = (ui: ReactElement) => {

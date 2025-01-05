@@ -2,6 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { HamburgerMenu } from "@/components/Navbar/components/HamburgerMenu/HamburgerMenu";
+
 import { render } from "../../../../custom-render";
 
 describe("HamburgerMenu Component", () => {

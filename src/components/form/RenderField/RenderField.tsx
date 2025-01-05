@@ -1,7 +1,9 @@
 "use client";
-import { Controller, Control, FieldValues, Path } from "react-hook-form";
-import ComponentMapper from "../ComponentMapper/ComponentMapper";
+import { Control, Controller, FieldValues, Path } from "react-hook-form";
+
 import { FieldConfig } from "@/types/GenericFrom";
+
+import ComponentMapper from "../ComponentMapper/ComponentMapper";
 
 type FormFieldProps<T extends FieldValues> = {
   formConfigItem: FieldConfig;

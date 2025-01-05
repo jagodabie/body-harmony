@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { NavItem } from "@/types";
 
 type NavigationProps = {
