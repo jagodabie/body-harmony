@@ -1,7 +1,8 @@
 "use client";
+import { Grid } from "@mui/material";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 
-import { FieldConfig } from "@/types/GenericFrom";
+import { FieldConfig } from "@/types/GenericForm";
 
 import ComponentMapper from "../ComponentMapper/ComponentMapper";
 
@@ -20,7 +21,7 @@ const FormField = <T extends FieldValues>({
       control={control}
       name={formConfigItem.name as Path<T>}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
-        <div>
+        <Grid item xs={formConfigItem.xs} md={formConfigItem.md}>
           <ComponentMapper
             onChange={onChange}
             value={value || ""}
@@ -32,7 +33,7 @@ const FormField = <T extends FieldValues>({
             options={formConfigItem.options ?? []}
           />
           {error && <span>{error.message}</span>}
-        </div>
+        </Grid>
       )}
     />
   );

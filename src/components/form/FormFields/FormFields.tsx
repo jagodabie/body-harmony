@@ -1,6 +1,7 @@
+import { Grid } from "@mui/material";
 import { Control } from "react-hook-form";
 
-import { FieldConfig } from "@/types/GenericFrom";
+import { FieldConfig } from "@/types/GenericForm";
 
 import FormField from "../RenderField/RenderField";
 
@@ -12,7 +13,7 @@ export const FormFields = ({
   control: Control;
 }) => {
   return (
-    <div className="form-fields">
+    <Grid container spacing={1} data-testid="form-grid">
       {fieldConfig?.map((formConfigItem: FieldConfig) => (
         <FormField
           key={formConfigItem.name}
@@ -20,6 +21,6 @@ export const FormFields = ({
           control={control}
         />
       ))}
-    </div>
+    </Grid>
   );
 };

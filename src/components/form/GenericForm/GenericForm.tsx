@@ -2,7 +2,7 @@
 import { Button } from "@mui/material";
 import { Control, FieldValues, useForm } from "react-hook-form";
 
-import { FormConfig } from "@/types/GenericFrom";
+import { FormConfig } from "@/types/GenericForm";
 
 import "./index.css";
 
@@ -14,13 +14,17 @@ export type GenericFormProps<T extends FieldValues> = {
 };
 
 export const GenericForm = <T extends FieldValues>({
-  formConfig: { fieldConfig, saveButtonLabel },
+  formConfig: { fieldConfig, saveButtonLabel, formWidth },
   onSubmit,
 }: GenericFormProps<T>) => {
   const { handleSubmit, control } = useForm<T>();
 
   return (
-    <form onSubmit={handleSubmit((data) => onSubmit(data))}>
+    <form
+      role="form"
+      onSubmit={handleSubmit((data) => onSubmit(data))}
+      style={{ width: formWidth ?? "100%" }}
+    >
       <FormFields fieldConfig={fieldConfig} control={control as Control} />
       <div className="form-submit">
         <Button variant="contained" type="submit" aria-label="Save form">

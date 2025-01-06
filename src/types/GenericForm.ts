@@ -29,10 +29,14 @@ export type FieldConfig = {
   radiosValues?: string[];
   options?: Option[];
   multiline?: boolean;
+  // TODO: for now optional but should be required
+  xs?: number;
+  md?: number;
 };
 
 export type FormConfig = {
   title?: string;
-  saveButtonLabel?: string;
+  saveButtonLabel: string;
   fieldConfig: FieldConfig[];
+  formWidth?: string;
 };

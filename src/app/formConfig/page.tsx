@@ -9,13 +9,13 @@ const UserRegistrationForm = () => {
   };
 
   return (
-    <div>
-      <h2>Create New Account</h2>
+    <>
+      <h2>Patient Details</h2>
       <GenericForm<UserFormData>
         formConfig={userFormConfig}
         onSubmit={handleFormSubmit}
       />
-    </div>
+    </>
   );
 };
 

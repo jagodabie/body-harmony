@@ -13,7 +13,7 @@ import {
   TextFieldVariants,
 } from "@mui/material";
 
-import { FieldType, Option } from "@/types/GenericFrom";
+import { FieldType, Option } from "@/types/GenericForm";
 
 type ComponentMapperProps = {
   type?: FieldType;
@@ -48,6 +48,7 @@ const ComponentMapper = ({
           onChange={onChange}
           label={label}
           variant={variant}
+          fullWidth
           inputProps={{
             min: 0,
           }}
@@ -58,6 +59,7 @@ const ComponentMapper = ({
         <TextField
           value={value}
           type={type}
+          fullWidth
           onChange={onChange}
           name={name}
           label={label}
@@ -68,12 +70,15 @@ const ComponentMapper = ({
     case "select":
       // TODO: manage display label based on value like foundName
       return (
-        <FormControl sx={{ m: 1, minWidth: 200 }}>
+        <FormControl sx={{ width: "100%" }}>
           <InputLabel>{label}</InputLabel>
           <Select
-            value={value}
+            value={
+              options?.some((option) => option.value === value) ? value : ""
+            }
             onChange={onChange}
             name={name}
+            fullWidth
             variant={variant}
             label="Selected"
           >
@@ -120,12 +125,17 @@ const ComponentMapper = ({
           type={type}
           onChange={onChange}
           name={name}
+          fullWidth
           label={label}
           variant={variant}
         />
       );
     default:
-      return <p aria-label={name}>{name}</p>;
+      return (
+        <p className="empty-field" aria-label={name}>
+          {name}
+        </p>
+      );
   }
 };
 export default ComponentMapper;
