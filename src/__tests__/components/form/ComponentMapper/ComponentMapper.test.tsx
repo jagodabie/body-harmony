@@ -8,6 +8,7 @@ describe("ComponentMapper Component", () => {
     render(
       <ComponentMapper type="number" name="nameTest" label="Test Label" />
     );
+
     const numberInput = screen.getByRole("spinbutton", { name: "Test Label" });
     expect(numberInput).toBeInTheDocument();
     expect(numberInput).toHaveAttribute("type", "number");
@@ -23,20 +24,29 @@ describe("ComponentMapper Component", () => {
     expect(textInput).toHaveAttribute("type", "text");
   });
 
-  it("renders a select input when type is select", () => {
+  it("renders a select input with a default option when options are not given", async () => {
     render(
       <ComponentMapper
         type="select"
         name="nameTest"
         label="Test Label"
-        value=""
+        value="option1"
       />
     );
 
-    const selectInput = screen.getByText("Test Label");
-    expect(selectInput).toBeInTheDocument();
+    const dropdownButton = screen.getByRole("combobox");
+    await userEvent.click(dropdownButton);
+
+    const dropdownItem = await screen.findByRole("option", {
+      name: "None",
+    });
+    const dropdownItems = screen.getAllByRole("option");
+    expect(dropdownItems).toHaveLength(1);
+
+    expect(dropdownItem).toBeInTheDocument();
   });
-  it("renders a properly select with options when type is select and options are given", async () => {
+
+  it("renders a select input with options when type is select and options are given", async () => {
     render(
       <ComponentMapper
         type="select"
@@ -50,6 +60,7 @@ describe("ComponentMapper Component", () => {
         ]}
       />
     );
+
     const dropdownButton = screen.getByRole("combobox");
     await userEvent.click(dropdownButton);
 
@@ -61,7 +72,8 @@ describe("ComponentMapper Component", () => {
 
     expect(dropdownItem).toBeInTheDocument();
   });
-  it("renders a properly select with options when type is select and options are not given", async () => {
+
+  it("renders a select input with a default option when options are not given", async () => {
     render(
       <ComponentMapper
         type="select"
@@ -70,6 +82,7 @@ describe("ComponentMapper Component", () => {
         value={"option1"}
       />
     );
+
     const dropdownButton = screen.getByRole("combobox");
     await userEvent.click(dropdownButton);
 
@@ -94,12 +107,13 @@ describe("ComponentMapper Component", () => {
   it("renders a radio input when type is radio", () => {
     render(<ComponentMapper type="radio" name="nameTest" label="Test Label" />);
 
-    const radioInput = screen.getByText("Test Label");
+    const radioInput = screen.getByRole("radiogroup");
     expect(radioInput).toBeInTheDocument();
   });
 
-  it("renders a p element when type is empty", () => {
+  it("renders a paragraph element when type is empty", () => {
     render(<ComponentMapper name="nameTest" label="Test Label" />);
+
     const pElement = screen.getByLabelText("nameTest");
     expect(pElement).toBeInTheDocument();
   });

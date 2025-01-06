@@ -26,7 +26,6 @@ describe("CustomSwitch Component", () => {
     render(<CustomSwitch theme={Theme.LIGHT} toggleTheme={toggleThemeMock} />);
 
     const switchElement = screen.getByRole("checkbox");
-
     await userEvent.click(switchElement);
 
     expect(toggleThemeMock).toHaveBeenCalledTimes(1);
@@ -40,8 +39,8 @@ describe("CustomSwitch Component", () => {
     const switchElement = screen.getByRole("checkbox");
     expect(switchElement).not.toBeChecked();
 
-    // Zmiana motywu na ciemny
     rerender(<CustomSwitch theme={Theme.DARK} toggleTheme={toggleThemeMock} />);
+
     expect(switchElement).toBeChecked();
   });
 });
