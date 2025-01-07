@@ -19,11 +19,11 @@ form {
   width: 50%;
 }
 
-.empty-field,
+.title-field,
 .form-submit > input {
   width: 100%;
 }
 
-.empty-field {
+.title-field {
   padding: 1rem;
 }

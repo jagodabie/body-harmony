@@ -1,0 +1,10 @@
+.form-builder__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-builder__elements {
+  width: 30%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

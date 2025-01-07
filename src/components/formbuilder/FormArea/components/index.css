@@ -1,0 +1,10 @@
+.editor-form-element {
+  border: var(--border);
+  border-radius: var(--radius-4);
+  padding: 1rem;
+}
+.editor-form-element__body {
+  border: var(--border);
+  border-radius: var(--radius-4);
+  padding: 1rem;
+}

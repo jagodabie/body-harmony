@@ -1,0 +1,23 @@
+.form-elements-list__element {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+
+  &:last-child {
+    border-bottom: none;
+  }
+  /* TODO change color */
+  &:hover {
+    background-color: red;
+  }
+}
+
+.form-elements-list__element-icon {
+  margin-right: 10px;
+}
+
+.form-elements-list__element-name {
+  font-size: 1rem;
+  font-weight: 500;
+}

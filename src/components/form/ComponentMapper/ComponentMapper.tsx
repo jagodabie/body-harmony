@@ -132,7 +132,7 @@ const ComponentMapper = ({
       );
     default:
       return (
-        <p className="empty-field" aria-label={name}>
+        <p className="title-field" aria-label={name}>
           {name}
         </p>
       );

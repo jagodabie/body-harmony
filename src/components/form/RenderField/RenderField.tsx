@@ -21,7 +21,7 @@ const FormField = <T extends FieldValues>({
       control={control}
       name={formConfigItem.name as Path<T>}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
-        <Grid item xs={formConfigItem.xs} md={formConfigItem.md}>
+        <Grid item xs={formConfigItem.xs || 12} md={formConfigItem.md || 12}>
           <ComponentMapper
             onChange={onChange}
             value={value || ""}
