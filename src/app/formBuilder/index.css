@@ -5,6 +5,18 @@
 
 .form-builder__elements {
   width: 30%;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: var(--border);
+  border-radius: var(--radius-1);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+.form-builder__settings {
+  width: 25%;
+}
+
+.form-builder__form {
+  width: 100%;
+  /* border: var(--border);
+  border-radius: var(--radius-1);
+  text-align: center; */
 }

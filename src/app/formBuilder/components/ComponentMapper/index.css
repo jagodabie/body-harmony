@@ -1,10 +1,19 @@
-.editor-form-element {
+.element {
   border: var(--border);
   border-radius: var(--radius-4);
   padding: 1rem;
 }
-.editor-form-element__body {
+
+.element.multiline {
+  padding: 3rem 1rem;
   border: var(--border);
   border-radius: var(--radius-4);
-  padding: 1rem;
+}
+
+.radio {
+  border-radius: 50%;
+}
+
+.checkbox {
+  border-radius: 10%;
 }

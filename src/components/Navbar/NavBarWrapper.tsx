@@ -8,9 +8,7 @@ import { HamburgerMenu } from "./components/HamburgerMenu/HamburgerMenu";
 import NavbarLogo from "./components/NavBarLogo/NavBarLogo";
 import { Navigation } from "./components/Navigation/Navigation";
 import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";
-
 import "./index.css";
-
 type NavBarWrapperProps = {
   navItems: NavItem[];
 };

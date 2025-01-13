@@ -1,5 +1,8 @@
 "use client";
-import GenericForm from "@/components/form/GenericForm/GenericForm";
+
+import { GenericForm } from "@/components/form/GenericForm/GenericForm";
+
+import ComponentMapper from "./components/ComponentMapper";
 
 import { userFormConfig, UserFormData } from ".";
 
@@ -14,6 +17,7 @@ const UserRegistrationForm = () => {
       <GenericForm<UserFormData>
         formConfig={userFormConfig}
         onSubmit={handleFormSubmit}
+        ComponentMapper={ComponentMapper}
       />
     </>
   );

@@ -1,3 +1,4 @@
+// filepath: /c:/Users/Jagoda/Desktop/body-harmony/body-harmony/eslint.config.mjs
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -15,7 +16,7 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     plugins: {
-      import: pluginImport, // Poprawka - import jako obiekt, nie string
+      import: pluginImport,
     },
     rules: {
       "import/order": [
@@ -28,6 +29,9 @@ const eslintConfig = [
             "parent",
             "sibling",
             "index",
+            "object",
+            "type",
+            "unknown",
           ],
           pathGroups: [
             {
@@ -40,6 +44,11 @@ const eslintConfig = [
               group: "internal",
               position: "before",
             },
+            {
+              pattern: "*.css", // Define the pattern for CSS files
+              group: "index",
+              position: "after", // Position CSS files at the end
+            },
           ],
           pathGroupsExcludedImportTypes: ["internal"],
           alphabetize: {
@@ -47,6 +56,7 @@ const eslintConfig = [
             caseInsensitive: true,
           },
           "newlines-between": "always",
+          warnOnUnassignedImports: true,
         },
       ],
       "sort-imports": [

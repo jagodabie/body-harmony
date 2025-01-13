@@ -9,6 +9,8 @@ export type FieldType =
   | "email"
   | "";
 
+export type EditorFormElementType = FieldType | "multiline" | "title";
+
 export type Option = {
   value: string;
   label: string;

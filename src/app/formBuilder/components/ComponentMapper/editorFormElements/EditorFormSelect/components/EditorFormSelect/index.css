@@ -1,0 +1,75 @@
+.element-select {
+  display: flex;
+  flex-direction: column;
+}
+
+.element-select-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  background-color: var(--background-light);
+  padding: 1rem;
+  border: var(--border);
+  border-radius: var(--radius-4);
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.element-select-label:hover {
+  opacity: 0.8;
+  color: var(--primary-main);
+  background-color: var(--background-hover);
+}
+
+.element-select-label__placeholder {
+  display: inline-block;
+  font-size: var(--font-size-small);
+  color: var(--text-placeholder);
+}
+
+.element-select-label__container svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.element-select-label:hover svg {
+  fill: var(--primary-main);
+  transform: rotate(180deg);
+}
+
+.element-select > ul {
+  background-color: var(--background-light);
+  border-radius: var(--radius-1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.element-options.select,
+.element-options.select > .option-item-wrapper {
+  margin: 0;
+}
+
+.option-item.select {
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  border-bottom: var(--border);
+  border-left: var(--border);
+  border-right: var(--border);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: var(--background-hover);
+    color: var(--primary-main);
+  }
+}
+.element-select > li:first-child {
+  border-top: none;
+}
+
+.element-select > input {
+  padding: 0 1rem;
+}

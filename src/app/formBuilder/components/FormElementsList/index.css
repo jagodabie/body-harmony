@@ -1,11 +1,16 @@
+.form-builder__elements > h4 {
+  padding: 1rem;
+}
+
 .form-elements-list__element {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  justify-content: flex-start;
   padding: 10px;
   border-bottom: 1px solid #ddd;
 
-  &:last-child {
-    border-bottom: none;
+  &:first-child {
+    border-top: var(--border);
   }
   /* TODO change color */
   &:hover {

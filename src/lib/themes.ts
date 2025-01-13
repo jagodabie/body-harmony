@@ -2,14 +2,19 @@ import { createTheme } from "@mui/material/styles";
 
 const commonStyles = {
   "--font-size": "1rem",
+  "--font-size-small": "0.875rem",
   "--font-weight-400": "400",
   "--font-weight-500": "500",
   "--font-weight-600": "600",
+  "--radius-1": "1px",
   "--radius-4": "4px",
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
   justifyContent: "space-between",
+  body: {
+    background: "#f8f8fb",
+  },
   main: {
     display: "flex",
     flexDirection: "column",
@@ -28,6 +33,10 @@ const resetStyles = {
     margin: 0,
   },
   li: {
+    margin: 0,
+    padding: 0,
+  },
+  h4: {
     margin: 0,
     padding: 0,
   },
@@ -56,9 +65,13 @@ export const lightTheme = createTheme({
           "--background-default": "#ffffff",
           "--background-paper": "#f5f5f5",
           "--text-primary": "#17202a",
+          "--text-placeholder": "#616161",
           "--primary-main": "#0070f3",
           "--box-shadow": "0 0 10px 0 rgba(0, 0, 0, 0.1)",
           "--border": "1px solid #ddd",
+          "--border-bold": "2px solid #ccc",
+          "--border-bold-focus": "2px solid var(--primary-main)",
+          "--border-dark": "1px solid #ccc",
         },
       },
     },
@@ -88,6 +101,7 @@ export const darkTheme = createTheme({
           "--background-default": "#17202a",
           "--background-paper": "#121212",
           "--text-primary": "#ffffff",
+          "--text-placeholder": "#fff",
           "--primary-main": "#79b8ff",
           "--box-shadow": "0 0 10px 0 rgba(236, 221, 221, 0.1)",
           "--border": "1px solid #fff",

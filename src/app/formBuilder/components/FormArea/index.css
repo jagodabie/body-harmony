@@ -1,0 +1,65 @@
+.editor-form-area__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  border-radius: var(--radius-1);
+}
+
+.editor-form-area__header {
+  border-bottom: var(--border);
+}
+
+.editor-form-area__header > h4 {
+  text-align: center;
+  width: 100%;
+  padding: 0 1.5rem;
+  margin: 0;
+  border-bottom: var(--border);
+  padding: 0.5rem 0;
+}
+
+.editor-form-area__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.5rem;
+}
+
+.editor-form-area__footer {
+  border-top: var(--border);
+}
+
+.editor-form-area__footer > button {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+}
+.editor-form-area__container > * {
+  width: 100%;
+}
+.editor-form-area__footer {
+  display: flex;
+}
+
+/* TODO: for now */
+form {
+  max-width: 100vh;
+  margin: auto;
+}
+
+.editor-form-area__empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.editor-form-area__empty > p {
+  color: var(--text-placeholder);
+}

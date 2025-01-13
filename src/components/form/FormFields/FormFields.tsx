@@ -5,13 +5,17 @@ import { FieldConfig } from "@/types/GenericForm";
 
 import FormField from "../RenderField/RenderField";
 
+type FormFieldsProps = {
+  fieldConfig: FieldConfig[];
+  control: Control;
+  Component: React.ElementType; // Dodanie propsa Component
+};
+
 export const FormFields = ({
   fieldConfig,
   control,
-}: {
-  fieldConfig: FieldConfig[];
-  control: Control;
-}) => {
+  Component,
+}: FormFieldsProps) => {
   return (
     <Grid container spacing={1} data-testid="form-grid">
       {fieldConfig?.map((formConfigItem: FieldConfig) => (
@@ -19,6 +23,7 @@ export const FormFields = ({
           key={formConfigItem.name}
           formConfigItem={formConfigItem}
           control={control}
+          Component={Component} // Przekazanie do FormField
         />
       ))}
     </Grid>

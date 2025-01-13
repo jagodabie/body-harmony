@@ -1,0 +1,30 @@
+.element-options {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+}
+
+.option-item {
+  width: 100%;
+}
+
+.option-item-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 21px;
+  width: 100%;
+}
+
+.option-shape-wrapper {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  margin: 0 21px;
+}
+
+.option-shape {
+  height: 16px;
+  width: 16px;
+  border: var(--border-dark);
+  padding: 0.4rem;
+}
