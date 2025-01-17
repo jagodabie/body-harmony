@@ -1,17 +1,16 @@
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { addFieldWithCount } from "@/store/slices/formEditorSlice";
 import { FormElements } from "@/types/FormBuilder";
-import { EditorFormElementType } from "@/types/GenericForm";
 
 import "./index.css";
 
 type FormElementsListProps = {
   elementsList: FormElements[];
-  selectElementType(type: EditorFormElementType): void;
 };
 
-export const FormElementsList = ({
-  elementsList,
-  selectElementType,
-}: FormElementsListProps) => {
+export const FormElementsList = ({ elementsList }: FormElementsListProps) => {
+  const dispatch = useAppDispatch();
+
   return (
     <>
       <h4>Elements list</h4>
@@ -21,7 +20,10 @@ export const FormElementsList = ({
             <li
               key={element.name}
               className="form-elements-list__element"
-              onClick={() => selectElementType(element.type)}
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(addFieldWithCount(element.type));
+              }}
             >
               <div className="form-elements-list__element-icon">
                 {element.icon}

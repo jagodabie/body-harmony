@@ -1,0 +1,55 @@
+.editor-form-element-actions {
+  width: fit-content;
+  z-index: 1;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.editor-form-element-wrapper-with-actions {
+  display: flex;
+}
+
+.editor-form-element-actions__delete,
+.editor-form-element-actions__edit {
+  display: flex;
+  position: relative;
+  margin: 1px;
+}
+
+.editor-form-element-actions__delete__tooltip,
+.editor-form-element-actions__edit__tooltip {
+  cursor: pointer;
+  background: var(--error);
+  padding: 0.5rem 1.5rem;
+  width: fit-content;
+  color: var(--background-default);
+  font-weight: 600;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 21px;
+}
+
+.editor-form-element-actions__edit__tooltip {
+  background-color: var(--text-primary);
+  padding: 0.5rem 2.1rem;
+}
+
+.editor-form-element-actions__delete__tooltip::after,
+.editor-form-element-actions__edit__tooltip::after {
+  content: "";
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: var(--error);
+  position: absolute;
+  top: 0;
+  left: 80px;
+}
+
+.editor-form-element-actions__edit__tooltip::after {
+  background-color: var(--text-primary);
+}

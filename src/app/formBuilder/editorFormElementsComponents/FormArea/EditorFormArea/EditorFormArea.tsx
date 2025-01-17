@@ -2,21 +2,18 @@ import { Button } from "@mui/material";
 import { Control, useForm } from "react-hook-form";
 
 import { EditableControlledTextField } from "@/components/ui/EditableControlledTextField/EditableControlledTextField";
-import { EditorFormElementType } from "@/types/GenericForm";
+import { useAppSelector } from "@/hooks/useAppDispatch";
 
-import { EditorFormElementWrapper } from "./components/EditorFormElementWrapper";
+import { EditorFormElementWrapperWithActions } from "../components/EditorFormElementWrapperWithActions/EditorFormElementWrapperWithActions";
+
 import "./index.css";
 
-// TODO: for now only one element is supported - optional
-type EditorFormAreaProps = {
-  selectedElements: EditorFormElementType[];
-  setCurrentEditingElement: (index: number) => void;
-};
-
-export const EditorFormArea = ({ selectedElements }: EditorFormAreaProps) => {
+export const EditorFormArea = () => {
   const { handleSubmit, control } = useForm();
+  const { selectedFormFields } = useAppSelector(({ formEditor }) => formEditor);
 
   // TODO: For now separate form
+
   return (
     <form
       role="form"
@@ -43,22 +40,22 @@ export const EditorFormArea = ({ selectedElements }: EditorFormAreaProps) => {
             readFieldClass="form-header"
           />
         </div>
-        {selectedElements.length > 0 ? (
+
+        {selectedFormFields.length > 0 ? (
           <>
             <div className="editor-form-area__body">
-              {/* TODO: change keys */}
-              {selectedElements.map((element, index) => (
-                <EditorFormElementWrapper
-                  key={index}
-                  type={element}
-                  // TODO: dynamic order
-                  order={1}
+              {selectedFormFields.map((element) => (
+                <EditorFormElementWrapperWithActions
+                  key={element.name}
+                  element={element}
                   control={control as Control}
                 />
               ))}
             </div>
             <div className="editor-form-area__footer">
-              <Button variant="text">Confirm Form configuration</Button>
+              <Button variant="text" type="submit">
+                Confirm Form configuration
+              </Button>
             </div>
           </>
         ) : (

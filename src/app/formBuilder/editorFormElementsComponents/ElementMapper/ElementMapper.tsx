@@ -4,7 +4,7 @@ import { Control } from "react-hook-form";
 import { ComponentMapperProps } from "@/app/formConfig/components/ComponentMapper";
 import { EditorFormElementType } from "@/types/GenericForm";
 
-import { OptionsBase } from "./editorFormElements/components/OptionsBase";
+import { OptionsBase } from "./editorFormElements/editorFormElementsComponents/OptionsBase";
 import { EditorFormSelect } from "./editorFormElements/EditorFormSelect/components/EditorFormSelect/EditorFormSelect";
 import "./index.css";
 

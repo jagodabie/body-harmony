@@ -1,9 +1,16 @@
 "use client";
+
 import { CustomSwitch } from "@/components/ui/CustomSwitch/CustomSwitch";
-import { useTheme } from "@/providers/themeProvider/ThemeProvider";
+import { useAppDispatch, useAppSelector } from "@/hooks/useAppDispatch";
+import { toggleTheme } from "@/store/slices/appSlice";
 
 export const ThemeSwitcher = () => {
-  const { theme, toggleTheme } = useTheme();
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.app.theme);
 
-  return <CustomSwitch theme={theme} toggleTheme={toggleTheme} />;
+  const handleToggleTheme = () => {
+    dispatch(toggleTheme());
+  };
+
+  return <CustomSwitch theme={theme} toggleTheme={handleToggleTheme} />;
 };

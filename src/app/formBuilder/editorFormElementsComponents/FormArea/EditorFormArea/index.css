@@ -39,9 +39,11 @@
   height: 100%;
   padding: 0.5rem;
 }
+
 .editor-form-area__container > * {
   width: 100%;
 }
+
 .editor-form-area__footer {
   display: flex;
 }

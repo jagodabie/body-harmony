@@ -5,18 +5,18 @@
 
 .form-builder__elements {
   width: 30%;
-  border: var(--border);
+  border-top: var(--border);
+  border-right: var(--border);
   border-radius: var(--radius-1);
   box-shadow: var(--box-shadow);
   text-align: center;
+  height: fit-content;
 }
+
 .form-builder__settings {
   width: 25%;
 }
 
 .form-builder__form {
   width: 100%;
-  /* border: var(--border);
-  border-radius: var(--radius-1);
-  text-align: center; */
 }

@@ -25,7 +25,8 @@ export type FormsElementProps = {
 
 export type FieldConfig = {
   name: string;
-  type?: FieldType;
+  // TODO: think about better way to handle this
+  type?: FieldType | EditorFormElementType;
   variant?: string;
   label: string;
   radiosValues?: string[];

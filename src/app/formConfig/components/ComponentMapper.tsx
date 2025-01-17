@@ -51,6 +51,7 @@ const ComponentMapper = ({
         inputProps={{ min: 0 }}
       />
     ),
+
     text: (
       <TextField
         value={value}
@@ -61,6 +62,18 @@ const ComponentMapper = ({
         label={label}
         variant={variant}
         multiline={multiline}
+      />
+    ),
+    multiline: (
+      <TextField
+        value={value}
+        type="text"
+        fullWidth
+        onChange={onChange}
+        name={name}
+        label={label}
+        variant={variant}
+        multiline
       />
     ),
     select: (

@@ -7,14 +7,18 @@
   align-items: stretch;
   justify-content: flex-start;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: var(--border);
+  background: var(--list-background);
+
+  transition: color 0.3s ease;
 
   &:first-child {
     border-top: var(--border);
   }
-  /* TODO change color */
+
   &:hover {
-    background-color: red;
+    cursor: pointer;
+    color: var(--primary-main);
   }
 }
 

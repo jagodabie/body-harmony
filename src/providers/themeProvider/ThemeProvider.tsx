@@ -1,37 +1,18 @@
 "use client";
+
 import { ThemeProvider } from "@mui/material";
-import React, { createContext, ReactNode, useContext, useState } from "react";
 
+import { useAppSelector } from "@/hooks/useAppDispatch";
 import { darkTheme, lightTheme } from "@/lib/themes";
+import { RootState } from "@/store/store";
 
-type ThemeMode = "light" | "dark";
-
-type ThemeContextType = {
-  theme: ThemeMode;
-  toggleTheme: () => void;
-};
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within a ThemeContextProvider");
-  }
-  return context;
-};
-
-export function ThemeContextProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<ThemeMode>("light");
-
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-
+export function ThemeContextProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const theme = useAppSelector((state: RootState) => state.app.theme);
   const currentTheme = theme === "light" ? lightTheme : darkTheme;
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
-    </ThemeContext.Provider>
-  );
+  return <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>;
 }

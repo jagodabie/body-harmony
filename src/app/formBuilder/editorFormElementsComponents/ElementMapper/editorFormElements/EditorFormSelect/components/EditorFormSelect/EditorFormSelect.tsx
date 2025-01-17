@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Control } from "react-hook-form";
 
-import { OptionsBase } from "../../../components/OptionsBase";
+import { OptionsBase } from "../../../editorFormElementsComponents/OptionsBase";
 
 import { SelectLabel } from "./SelectLabel";
 

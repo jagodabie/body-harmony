@@ -1,7 +1,6 @@
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: var(----background-paper);
   width: 100%;
   padding: 2rem 4rem;

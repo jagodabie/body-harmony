@@ -29,7 +29,7 @@ export default function RootLayout({
       <html lang="en">
         <head>
           <link rel="manifest" href="/manifest.json" />
-          <link rel="icon" href="/public/favicon.ico" />
+          <link rel="icon" href="/favicon.ico" />
           <meta name="theme-color" content="#4caf50" />
         </head>
         <body>
