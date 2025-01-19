@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import GenericForm from "@/components/form/GenericForm/GenericForm";
+import ComponentMapper from "@/app/formConfig/components/ComponentMapper";
+import { GenericForm } from "@/components/form/GenericForm/GenericForm";
 import { FormConfig } from "@/types/GenericForm";
 
 const formConfig: FormConfig = {
@@ -26,7 +27,13 @@ describe("GenericForm", () => {
   });
 
   it("renders the form with all required elements", () => {
-    render(<GenericForm formConfig={formConfig} onSubmit={jest.fn()} />);
+    render(
+      <GenericForm
+        formConfig={formConfig}
+        onSubmit={jest.fn()}
+        componentMapper={ComponentMapper}
+      />
+    );
 
     const formElement = screen.getByRole("form");
     const saveButton = screen.getByRole("button", { name: "Save form" });
@@ -44,6 +51,7 @@ describe("GenericForm", () => {
       <GenericForm
         formConfig={{ ...formConfig, formWidth: "50%" }}
         onSubmit={jest.fn()}
+        componentMapper={ComponentMapper}
       />
     );
 
@@ -56,6 +64,7 @@ describe("GenericForm", () => {
       <GenericForm
         formConfig={{ ...formConfig, formWidth: "10%" }}
         onSubmit={jest.fn()}
+        componentMapper={ComponentMapper}
       />
     );
 
@@ -64,7 +73,13 @@ describe("GenericForm", () => {
   });
 
   it("defaults to 100% width when formWidth is not provided", () => {
-    render(<GenericForm formConfig={formConfig} onSubmit={jest.fn()} />);
+    render(
+      <GenericForm
+        formConfig={formConfig}
+        onSubmit={jest.fn()}
+        componentMapper={ComponentMapper}
+      />
+    );
 
     const formElement = screen.getByRole("form");
     expect(formElement).toHaveStyle("width: 100%");
@@ -74,7 +89,13 @@ describe("GenericForm", () => {
     window.history.back = jest.fn();
     window.confirm = jest.fn(() => true);
 
-    render(<GenericForm formConfig={formConfig} onSubmit={jest.fn()} />);
+    render(
+      <GenericForm
+        formConfig={formConfig}
+        onSubmit={jest.fn()}
+        componentMapper={ComponentMapper}
+      />
+    );
 
     const cancelButton = screen.getByRole("button", { name: "Cancel form" });
     await userEvent.click(cancelButton);
@@ -87,7 +108,13 @@ describe("GenericForm", () => {
     window.history.back = jest.fn();
     window.confirm = jest.fn(() => false);
 
-    render(<GenericForm formConfig={formConfig} onSubmit={jest.fn()} />);
+    render(
+      <GenericForm
+        formConfig={formConfig}
+        onSubmit={jest.fn()}
+        componentMapper={ComponentMapper}
+      />
+    );
 
     const cancelButton = screen.getByRole("button", { name: "Cancel form" });
     await userEvent.click(cancelButton);

@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { Control } from "react-hook-form";
 
-import { useClickOutside } from "@/__tests__/hooks/useClickOutsideHandler";
 import { ControlledTextField } from "@/components/ui/ControlledTextField/ControlledTextField";
 import { useAppDispatch, useAppSelector } from "@/hooks/useAppDispatch";
+import { useClickOutside } from "@/hooks/useClickOutsideHandler";
 import { setEditingElement } from "@/store/slices/formEditorSlice";
 import { FieldConfig } from "@/types/GenericForm";
 

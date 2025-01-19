@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-import useScreenSize from "@/hooks/useScreenSize";
+import { useScreenSize } from "@/hooks/useScreenSize";
 import { NavItem } from "@/types";
 
 import { HamburgerMenu } from "./components/HamburgerMenu/HamburgerMenu";
@@ -9,6 +9,7 @@ import NavbarLogo from "./components/NavBarLogo/NavBarLogo";
 import { Navigation } from "./components/Navigation/Navigation";
 import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";
 import "./index.css";
+
 type NavBarWrapperProps = {
   navItems: NavItem[];
 };

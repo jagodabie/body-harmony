@@ -17,7 +17,7 @@ const UserRegistrationForm = () => {
       <GenericForm<UserFormData>
         formConfig={userFormConfig}
         onSubmit={handleFormSubmit}
-        ComponentMapper={ComponentMapper}
+        componentMapper={ComponentMapper}
       />
     </>
   );

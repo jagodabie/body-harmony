@@ -11,13 +11,13 @@ import "./index.css";
 export type GenericFormProps<T extends FieldValues> = {
   formConfig: FormConfig;
   onSubmit: (data: T) => void;
-  ComponentMapper: React.ElementType; // Nowy props
+  componentMapper: React.ElementType; // Nowy props
 };
 
 export const GenericForm = <T extends FieldValues>({
   formConfig: { fieldConfig, saveButtonLabel, formWidth },
   onSubmit,
-  ComponentMapper,
+  componentMapper,
 }: GenericFormProps<T>) => {
   const { handleSubmit, control } = useForm<T>();
 
@@ -30,7 +30,7 @@ export const GenericForm = <T extends FieldValues>({
       <FormFields
         fieldConfig={fieldConfig}
         control={control as Control}
-        Component={ComponentMapper}
+        Component={componentMapper}
       />
       <div className="form-submit">
         <Button variant="contained" type="submit" aria-label="Save form">

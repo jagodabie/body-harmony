@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import ComponentMapper from "@/components/form/ComponentMapper/ComponentMapper";
+import ComponentMapper from "@/app/formConfig/components/ComponentMapper";
 
 describe("ComponentMapper Component", () => {
   it("renders a number input when type is number", () => {
