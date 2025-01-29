@@ -16,23 +16,20 @@ const store = configureStore({
   },
 });
 
-describe("tests for appSlice", () => {
-  test("initialize slice with initialValue", () => {
+describe("appSlice", () => {
+  it("initialize slice with initialValue", () => {
     const state = store.getState().app;
     expect(state).toEqual(initialState);
   });
 
-  test("toggle theme works correctly", () => {
-    // Initial state should be 'light'
+  it("toggle theme works correctly", () => {
     let state = store.getState().app;
     expect(state.theme).toBe("light");
 
-    // Toggle theme to 'dark'
     store.dispatch(toggleTheme());
     state = store.getState().app;
     expect(state.theme).toBe("dark");
 
-    // Toggle theme back to 'light'
     store.dispatch(toggleTheme());
     state = store.getState().app;
     expect(state.theme).toBe("light");

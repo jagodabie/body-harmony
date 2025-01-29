@@ -20,9 +20,9 @@ export const EditorFormElementActions = ({ id }: { id: string }) => {
         bgColor="var(--error)"
       />
       <ActionButton
-        key={`${id}-edit`}
-        actionId="edit"
-        tooltipText="Edit"
+        key={`${id}-settings`}
+        actionId="settings"
+        tooltipText="settings"
         onClick={() => console.log("settings", id)}
         IconComponent={SettingsIcon}
         bgColor="var(--text-primary)"

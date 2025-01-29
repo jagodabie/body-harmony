@@ -2,7 +2,7 @@
 
 import { GenericForm } from "@/components/form/GenericForm/GenericForm";
 
-import ComponentMapper from "./components/ComponentMapper";
+import { ComponentMapper } from "./userRegistrationComponents/ComponentMapper";
 
 import { userFormConfig, UserFormData } from ".";
 

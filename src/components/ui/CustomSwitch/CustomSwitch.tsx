@@ -16,7 +16,7 @@ export const CustomSwitch = ({ theme, toggleTheme }: CustomSwitchProps) => {
         checked={theme === Theme.DARK}
         disableRipple
         inputProps={{
-          "aria-label": "enable dark mode",
+          "aria-label": "Toggle theme",
         }}
         icon={
           <LightModeIcon

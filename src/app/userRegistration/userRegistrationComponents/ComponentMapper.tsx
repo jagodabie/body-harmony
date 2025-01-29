@@ -28,7 +28,7 @@ export type ComponentMapperProps = {
   multiline?: boolean;
 };
 
-const ComponentMapper = ({
+export const ComponentMapper = ({
   type,
   value,
   name,
@@ -140,5 +140,3 @@ const ComponentMapper = ({
     )
   );
 };
-
-export default ComponentMapper;

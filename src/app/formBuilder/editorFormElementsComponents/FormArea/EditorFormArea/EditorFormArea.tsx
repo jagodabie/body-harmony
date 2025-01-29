@@ -4,7 +4,7 @@ import { Control, useForm } from "react-hook-form";
 import { EditableControlledTextField } from "@/components/ui/EditableControlledTextField/EditableControlledTextField";
 import { useAppSelector } from "@/hooks/useAppDispatch";
 
-import { EditorFormElementWrapperWithActions } from "../components/EditorFormElementWrapperWithActions/EditorFormElementWrapperWithActions";
+import { EditorFormElementWrapperWithActions } from "../FormAreaComponents/EditorFormElementWrapperWithActions/EditorFormElementWrapperWithActions";
 
 import "./index.css";
 
@@ -20,7 +20,7 @@ export const EditorFormArea = () => {
       onSubmit={handleSubmit((data) => console.log(data, "test"))}
     >
       <div className="editor-form-area__container">
-        <div className="editor-form-area__header">
+        <div role="header" className="editor-form-area__header">
           <EditableControlledTextField
             controlledKey="formTitle"
             name="formTitle"
@@ -52,7 +52,7 @@ export const EditorFormArea = () => {
                 />
               ))}
             </div>
-            <div className="editor-form-area__footer">
+            <div role="footer" className="editor-form-area__footer">
               <Button variant="text" type="submit">
                 Confirm Form configuration
               </Button>

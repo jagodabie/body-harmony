@@ -1,3 +1,7 @@
 .editable-field {
   padding: 1rem;
 }
+
+.editable-field__read {
+  cursor: auto;
+}

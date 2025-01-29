@@ -48,12 +48,13 @@ export const EditableControlledTextField = ({
           customStyles={customStyles}
         />
       ) : (
-        <span
+        <div
+          role="button"
           className={`editable-field__read ${readFieldClass}`}
           onClick={handleToggle}
         >
           {value || placeholder}
-        </span>
+        </div>
       )}
     </div>
   );

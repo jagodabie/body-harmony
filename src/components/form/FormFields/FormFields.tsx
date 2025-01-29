@@ -8,7 +8,7 @@ import FormField from "../RenderField/RenderField";
 type FormFieldsProps = {
   fieldConfig: FieldConfig[];
   control: Control;
-  Component: React.ElementType; // Dodanie propsa Component
+  Component: React.ElementType;
 };
 
 export const FormFields = ({
@@ -23,7 +23,7 @@ export const FormFields = ({
           key={formConfigItem.name}
           formConfigItem={formConfigItem}
           control={control}
-          Component={Component} // Przekazanie do FormField
+          Component={Component}
         />
       ))}
     </Grid>

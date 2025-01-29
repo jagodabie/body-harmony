@@ -11,6 +11,7 @@ export const SelectLabel = ({
   return (
     <div
       className="element-select-label"
+      role="button"
       onClick={() => setIsActive((prev: boolean) => !prev)}
     >
       <span className="element-select-label__placeholder">

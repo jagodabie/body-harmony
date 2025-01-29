@@ -5,7 +5,7 @@ import Home from "@/app/page";
 import { render } from "../../../custom-render";
 
 describe("Home component", () => {
-  test("Home component renders correctly", () => {
+  it("Home component renders correctly", () => {
     render(<Home />);
 
     const title = screen.getByText("This is the home page content.");

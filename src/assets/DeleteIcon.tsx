@@ -12,6 +12,7 @@ export const DeleteIcon = ({
       width={size}
       height={size}
       color={color}
+      data-testid="delete-icon"
     >
       <path
         fillRule="evenodd"

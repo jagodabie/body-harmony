@@ -5,14 +5,7 @@ const Icon = ({ width = 32, height = 32 }) => {
       version="1.1"
       width={`${width}px`}
       height={`${height}px`}
-      style={{
-        shapeRendering: "geometricPrecision",
-        textRendering: "geometricPrecision",
-        imageRendering: "auto",
-        fillRule: "evenodd",
-        clipRule: "evenodd",
-      }}
-      xmlnsXlink="http://www.w3.org/1999/xlink"
+      data-testid="app-logo-icon"
     >
       <g>
         <path

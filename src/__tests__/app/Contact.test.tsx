@@ -4,7 +4,7 @@ import Contact from "@/app/contact/page";
 
 import { render } from "../../../custom-render";
 
-test("Contact component", () => {
+it("Contact component", () => {
   render(<Contact />);
 
   const title = screen.getByText("Hello contact");

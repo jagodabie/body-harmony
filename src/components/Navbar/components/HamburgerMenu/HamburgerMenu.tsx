@@ -10,6 +10,7 @@ export const HamburgerMenu = ({ isOpen, toggleMenu }: HamburgerMenuProps) => {
   return (
     <div
       className="hamburger-icon"
+      data-testid="hamburger-icon"
       onClick={toggleMenu}
       aria-label={isOpen ? "Close menu" : "Open menu"}
       role="menu"

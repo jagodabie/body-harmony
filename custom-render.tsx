@@ -1,14 +1,40 @@
-import { render } from "@testing-library/react";
+import { configureStore } from "@reduxjs/toolkit";
+import { render, RenderOptions } from "@testing-library/react";
 import { ReactElement, ReactNode } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { Provider } from "react-redux";
 
-import AppProviders from "@/providers/appProviders/AppProviders";
+import { rootReducer } from "@/store/rootStore";
 
-const customRender = (ui: ReactElement) => {
-  const Wrapper = ({ children }: { children: ReactNode }) => (
-    <AppProviders>{children}</AppProviders>
-  );
+interface CustomRenderOptions extends Omit<RenderOptions, "wrapper"> {
+  preloadedState?: Record<string, unknown>;
+  store?: ReturnType<typeof configureStore>;
+  formDefaultValues?: Record<string, unknown>;
+}
 
-  return render(ui, { wrapper: Wrapper });
+const customRender = (
+  ui: ReactElement,
+  {
+    preloadedState = {},
+    store = configureStore({
+      reducer: rootReducer,
+      preloadedState,
+    }),
+    formDefaultValues = {},
+    ...options
+  }: CustomRenderOptions = {}
+) => {
+  const Wrapper = ({ children }: { children: ReactNode }) => {
+    const methods = useForm({ defaultValues: formDefaultValues });
+
+    return (
+      <Provider store={store}>
+        <FormProvider {...methods}>{children}</FormProvider>
+      </Provider>
+    );
+  };
+
+  return render(ui, { wrapper: Wrapper, ...options });
 };
 
 export * from "@testing-library/react";

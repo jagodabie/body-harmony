@@ -11,7 +11,7 @@ import "./index.css";
 export type GenericFormProps<T extends FieldValues> = {
   formConfig: FormConfig;
   onSubmit: (data: T) => void;
-  componentMapper: React.ElementType; // Nowy props
+  componentMapper: React.ElementType;
 };
 
 export const GenericForm = <T extends FieldValues>({

@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 const commonStyles = {
+  "--font-family": "Arial, sans-serif",
   "--font-size": "1rem",
   "--font-size-small": "0.875rem",
   "--font-weight-400": "400",
@@ -15,12 +16,14 @@ const commonStyles = {
   justifyContent: "space-between",
   body: {
     background: "#f8f8fb",
+    fontSize: "var(--font-family)",
   },
   main: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
     "& > *": {
       width: "100%",
     },

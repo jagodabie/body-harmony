@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { logRoles, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { HamburgerMenu } from "@/components/Navbar/components/HamburgerMenu/HamburgerMenu";
@@ -30,6 +30,26 @@ describe("HamburgerMenu Component", () => {
     await userEvent.click(menuButton);
 
     expect(toggleMenuMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("aria label is equal Close menu when isOpen  equal to true.", () => {
+    const { container } = render(
+      <HamburgerMenu isOpen={true} toggleMenu={toggleMenuMock} />
+    );
+    logRoles(container);
+    const menuButton = screen.getByRole("menu", { name: "Close menu" });
+
+    expect(menuButton).toBeInTheDocument();
+  });
+
+  it("aria label is equal Open menu when isOpen  equal to false.", () => {
+    const { container } = render(
+      <HamburgerMenu isOpen={false} toggleMenu={toggleMenuMock} />
+    );
+    logRoles(container);
+    const menuButton = screen.getByRole("menu", { name: "Open menu" });
+
+    expect(menuButton).toBeInTheDocument();
   });
 
   it("toggles icon when clicked", async () => {

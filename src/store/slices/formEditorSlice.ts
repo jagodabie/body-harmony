@@ -3,13 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Nullable } from "@/types";
 import { EditorFormElementType, FieldConfig } from "@/types/GenericForm";
 
-interface FormEditorState {
+export interface FormEditorState {
   selectedFormFields: FieldConfig[];
   editingElement: Nullable<string>;
   formElementsCount: Record<EditorFormElementType, number>;
 }
 
-const initialState: FormEditorState = {
+export const initialState: FormEditorState = {
   selectedFormFields: [],
   editingElement: null,
   formElementsCount: {} as Record<EditorFormElementType, number>,
@@ -50,6 +50,7 @@ const formEditorSlice = createSlice({
       });
       state.editingElement = elementName;
     },
+
     deleteSelectedFormField: (
       state: FormEditorState,
       action: PayloadAction<string>

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import ComponentMapper from "@/app/formConfig/components/ComponentMapper";
+import { ComponentMapper } from "@/app/userRegistration/userRegistrationComponents/ComponentMapper";
 import { GenericForm } from "@/components/form/GenericForm/GenericForm";
 import { FormConfig } from "@/types/GenericForm";
 
@@ -26,7 +26,7 @@ describe("GenericForm", () => {
     jest.restoreAllMocks();
   });
 
-  it("renders the form with all required elements", () => {
+  it("Renders the form with all required elements.", () => {
     render(
       <GenericForm
         formConfig={formConfig}
@@ -46,7 +46,7 @@ describe("GenericForm", () => {
     expect(fieldsSection).toBeInTheDocument();
   });
 
-  it("applies correct form width when formWidth is set to 50%", () => {
+  it("Applies correct form width when formWidth is set to 50%.", () => {
     render(
       <GenericForm
         formConfig={{ ...formConfig, formWidth: "50%" }}
@@ -59,7 +59,7 @@ describe("GenericForm", () => {
     expect(formElement).toHaveStyle("width: 50%");
   });
 
-  it("applies correct form width when formWidth is set to 10%", () => {
+  it("Applies correct form width when formWidth is set to 10%.", () => {
     render(
       <GenericForm
         formConfig={{ ...formConfig, formWidth: "10%" }}
@@ -72,7 +72,7 @@ describe("GenericForm", () => {
     expect(formElement10).toHaveStyle("width: 10%");
   });
 
-  it("defaults to 100% width when formWidth is not provided", () => {
+  it("Defaults to 100% width when formWidth is not provided.", () => {
     render(
       <GenericForm
         formConfig={formConfig}
@@ -85,7 +85,7 @@ describe("GenericForm", () => {
     expect(formElement).toHaveStyle("width: 100%");
   });
 
-  it("calls window.history.back() after clicking cancel button and confirming", async () => {
+  it("Calls window.history.back() after clicking cancel button and confirming.", async () => {
     window.history.back = jest.fn();
     window.confirm = jest.fn(() => true);
 
@@ -104,7 +104,7 @@ describe("GenericForm", () => {
     expect(window.history.back).toHaveBeenCalledTimes(1);
   });
 
-  it("does not call window.history.back() if cancel is not confirmed", async () => {
+  it("Does not call window.history.back() if cancel is not confirmed.", async () => {
     window.history.back = jest.fn();
     window.confirm = jest.fn(() => false);
 

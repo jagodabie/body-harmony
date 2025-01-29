@@ -7,7 +7,7 @@ import { FieldConfig } from "@/types/GenericForm";
 type FormFieldProps<T extends FieldValues> = {
   formConfigItem: FieldConfig;
   control: Control<T>;
-  Component: React.ElementType; // Typ komponentu do zamiany
+  Component: React.ElementType;
 };
 
 const FormField = <T extends FieldValues>({

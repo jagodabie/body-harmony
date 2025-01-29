@@ -1,17 +1,15 @@
-import { useState } from "react";
 import { Control } from "react-hook-form";
 
-import { ControlledTextField } from "@/components/ui/ControlledTextField/ControlledTextField";
+import { EditableControlledTextField } from "@/components/ui/EditableControlledTextField/EditableControlledTextField";
 
 import "./index.css";
 
 export const OptionsBase = ({
   control,
-  name,
-  shape,
+  shape = false,
   options,
   optionLabel,
-  className,
+  className = "",
 }: {
   control: Control;
   name: string;
@@ -20,38 +18,40 @@ export const OptionsBase = ({
   optionLabel: string;
   className?: string;
 }) => {
-  const [activatedItems, setActivatedItems] = useState<Set<string>>(new Set());
-
-  const toggleItem = (key: string) => {
-    setActivatedItems((prev) => new Set(prev).add(key));
-  };
-
   return (
     <ul className={`element-options ${className}`}>
-      {options.map((key) => (
-        <div key={`${key}-wrapper`} className="option-item-wrapper">
+      {options.map((key, index) => (
+        <li key={`option-${key}-${index}`} className="option-item-wrapper">
           {shape && (
-            <div className="option-shape-wrapper">
-              <div className={`option-shape ${className}`}></div>
+            <div className="option-shape-wrapper" data-testid="option-shape">
+              <div className={`option-shape ${className || ""}`}></div>
             </div>
           )}
-          <li
-            key={key}
-            onClick={() => toggleItem(key)}
-            className={`option-item ${className}`}
-          >
-            {activatedItems.has(key) ? (
-              <ControlledTextField
-                controlledKey={`${name}-${key}`}
-                name={`${name}-${key}`}
-                control={control}
-                placeholder={key.replace("option", `${optionLabel} `)}
-              />
-            ) : (
-              key.replace("option", "Type option ")
-            )}
-          </li>
-        </div>
+
+          <EditableControlledTextField
+            controlledKey={`${key}-${index}`}
+            name={`${key}-${index}`}
+            control={control}
+            placeholder={key.replace("option", `${optionLabel} `)}
+            readOnly={false}
+            customStyles={{
+              ".MuiInput-root::before": {
+                content: '""',
+                border: "none",
+              },
+              "& .MuiInputBase-input": {
+                fontSize: "1rem",
+                "&::placeholder": {
+                  color: "gray",
+                  fontFamily: "var(--font-family)",
+                  fontSize: "var(--font-size)",
+                },
+              },
+            }}
+            className="option-item"
+            readFieldClass="option-item"
+          />
+        </li>
       ))}
     </ul>
   );

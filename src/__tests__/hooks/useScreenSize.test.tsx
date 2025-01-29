@@ -21,7 +21,7 @@ describe("useScreenSize hook", () => {
 
   it("should update the size and isMobile when the window is resized to a smaller screen", () => {
     window.innerWidth = 600;
-    window.innerHeight = 800; // Simulate a resize event
+    window.innerHeight = 800;
     const event = new Event("resize");
     window.dispatchEvent(event);
 
@@ -34,7 +34,7 @@ describe("useScreenSize hook", () => {
 
   it("should update the size and isMobile when the window is resized to a larger screen", () => {
     window.innerWidth = 1200;
-    window.innerHeight = 900; // Simulate another resize event
+    window.innerHeight = 900;
     const event = new Event("resize");
     window.dispatchEvent(event);
 

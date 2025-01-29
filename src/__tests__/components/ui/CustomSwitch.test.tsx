@@ -18,7 +18,7 @@ describe("CustomSwitch Component", () => {
   it("renders dark mode when theme is set to dark", () => {
     render(<CustomSwitch theme={Theme.DARK} toggleTheme={toggleThemeMock} />);
 
-    const darkModeIcon = screen.getByLabelText("enable dark mode");
+    const darkModeIcon = screen.getByLabelText("Toggle theme");
     expect(darkModeIcon).toBeChecked();
   });
 

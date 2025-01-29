@@ -4,7 +4,7 @@ import About from "@/app/about/page";
 
 import { render } from "../../../custom-render";
 
-test("About component", () => {
+it("About component", () => {
   render(<About />);
 
   const title = screen.getByText("Hello about");

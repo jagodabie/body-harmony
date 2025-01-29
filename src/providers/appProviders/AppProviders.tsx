@@ -4,7 +4,7 @@ import { CssBaseline } from "@mui/material";
 import React, { ReactNode } from "react";
 import { Provider } from "react-redux";
 
-import store from "@/store/store";
+import { store } from "@/store/store";
 
 import { ThemeContextProvider } from "../themeProvider/ThemeProvider";
 

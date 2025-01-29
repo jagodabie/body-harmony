@@ -5,7 +5,9 @@
 }
 
 .option-item {
-  width: 100%;
+  width: 80%;
+  font-size: 1rem;
+  height: 56px;
 }
 
 .option-item-wrapper {
