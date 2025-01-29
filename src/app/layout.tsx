@@ -5,16 +5,16 @@ import { NavBarWrapper } from "@/components/Navbar/NavBarWrapper";
 import AppProvider from "@/providers/appProviders/AppProviders";
 
 export const metadata: Metadata = {
-  title: "BodyHarmony – Zdrowie, Świadomość, Harmonia",
+  title: "BodyHarmony – Health, Awareness, Harmony",
   description:
-    "BodyHarmony to aplikacja, która pomoże Ci osiągnąć harmonię ciała i umysłu poprzez świadome odżywianie oraz monitorowanie zdrowia.",
+    "BodyHarmony is an app that helps you achieve body and mind harmony through mindful eating and health monitoring.",
   keywords: [
-    "świadome jedzenie",
     "mindful eating",
-    "zdrowie",
-    "dieta",
+    "health",
+    "diet",
     "BodyHarmony",
-    "harmonia ciała",
+    "body harmony",
+    "well-being",
   ],
   manifest: "/web.manifest",
 };
