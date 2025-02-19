@@ -2,22 +2,33 @@ import { Button } from "@mui/material";
 import { Control, useForm } from "react-hook-form";
 
 import { EditableControlledTextField } from "@/components/ui/EditableControlledTextField/EditableControlledTextField";
-import { useAppSelector } from "@/hooks/useAppDispatch";
+import { useAppDispatch, useAppSelector } from "@/hooks/useAppDispatch";
+import { setFormEditorConfig } from "@/store/slices/formEditorSlice";
+import { mapDataToConfigFields } from "@/utils";
 
 import { EditorFormElementWrapperWithActions } from "../FormAreaComponents/EditorFormElementWrapperWithActions/EditorFormElementWrapperWithActions";
 
 import "./index.css";
 
 export const EditorFormArea = () => {
-  const { handleSubmit, control } = useForm();
+  const { handleSubmit, control, unregister } = useForm();
   const { selectedFormFields } = useAppSelector(({ formEditor }) => formEditor);
 
+  const dispatch = useAppDispatch();
+
   // TODO: For now separate form
+
+  // TODO: rare data to keep
 
   return (
     <form
       role="form"
-      onSubmit={handleSubmit((data) => console.log(data, "test"))}
+      onSubmit={handleSubmit((data) => {
+        console.log(mapDataToConfigFields(data), "data ======>>>");
+        dispatch(
+          setFormEditorConfig({ fieldConfig: mapDataToConfigFields(data) })
+        );
+      })}
     >
       <div className="editor-form-area__container">
         <div role="header" className="editor-form-area__header">
@@ -49,6 +60,7 @@ export const EditorFormArea = () => {
                   key={element.name}
                   element={element}
                   control={control as Control}
+                  unregister={unregister}
                 />
               ))}
             </div>

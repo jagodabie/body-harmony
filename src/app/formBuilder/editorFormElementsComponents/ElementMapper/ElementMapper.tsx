@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { Control } from "react-hook-form";
 
-import { ComponentMapperProps } from "@/app/userRegistration/userRegistrationComponents/ComponentMapper";
+import { ComponentMapperProps } from "@/components/ui/ComponentMapper/ComponentMapper";
 import { EditorFormElementType } from "@/types/GenericForm";
 
 import { EditorFormSelect } from "./editorFormElements/editorFormElementsComponents/EditorFormSelect/EditorFormSelect";

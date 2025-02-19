@@ -8,14 +8,16 @@ import { EditorFormElementWrapper } from "../EditorFormElementWrapper/EditorForm
 export const EditorFormElementWrapperWithActions = ({
   element,
   control,
+  unregister,
 }: {
   element: FieldConfig;
   control: Control;
+  unregister: (name: string) => void;
 }) => {
   return (
     <div className="editor-form-element-wrapper-with-actions">
       <EditorFormElementWrapper element={element} control={control} />
-      <EditorFormElementActions id={element.name} />
+      <EditorFormElementActions id={element.name} unregister={unregister} />
     </div>
   );
 };

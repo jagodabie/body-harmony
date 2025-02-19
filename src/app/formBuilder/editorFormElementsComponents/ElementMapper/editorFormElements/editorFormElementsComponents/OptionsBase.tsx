@@ -8,6 +8,7 @@ export const OptionsBase = ({
   control,
   shape = false,
   options,
+  name,
   optionLabel,
   className = "",
 }: {
@@ -20,8 +21,8 @@ export const OptionsBase = ({
 }) => {
   return (
     <ul className={`element-options ${className}`}>
-      {options.map((key, index) => (
-        <li key={`option-${key}-${index}`} className="option-item-wrapper">
+      {options.map((key) => (
+        <li key={`option-${key}`} className="option-item-wrapper">
           {shape && (
             <div className="option-shape-wrapper" data-testid="option-shape">
               <div className={`option-shape ${className || ""}`}></div>
@@ -29,8 +30,8 @@ export const OptionsBase = ({
           )}
 
           <EditableControlledTextField
-            controlledKey={`${key}-${index}`}
-            name={`${key}-${index}`}
+            controlledKey={`${key}`}
+            name={`${name}-${key}`}
             control={control}
             placeholder={key.replace("option", `${optionLabel} `)}
             readOnly={false}

@@ -2,11 +2,18 @@ import { DeleteIcon } from "@/assets/DeleteIcon";
 import { SettingsIcon } from "@/assets/SettingsIcon";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { deleteSelectedFormField } from "@/store/slices/formEditorSlice";
+import { createLabelsListToUnregister } from "@/utils";
 
 import { ActionButton } from "./ActionButton/ActionButton";
 import "./index.css";
 
-export const EditorFormElementActions = ({ id }: { id: string }) => {
+export const EditorFormElementActions = ({
+  id,
+  unregister,
+}: {
+  id: string;
+  unregister: (name: string) => void;
+}) => {
   const dispatch = useAppDispatch();
 
   return (
@@ -15,7 +22,11 @@ export const EditorFormElementActions = ({ id }: { id: string }) => {
         key={`${id}-delete`}
         actionId="delete"
         tooltipText="Delete"
-        onClick={() => dispatch(deleteSelectedFormField(id))}
+        onClick={async () => {
+          await dispatch(deleteSelectedFormField(id));
+
+          createLabelsListToUnregister(id).forEach((name) => unregister(name));
+        }}
         IconComponent={DeleteIcon}
         bgColor="var(--error)"
       />

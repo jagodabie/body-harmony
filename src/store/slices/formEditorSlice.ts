@@ -1,18 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { Nullable } from "@/types";
-import { EditorFormElementType, FieldConfig } from "@/types/GenericForm";
+import {
+  EditorFormElementType,
+  FieldConfig,
+  FormConfig,
+} from "@/types/GenericForm";
 
 export interface FormEditorState {
   selectedFormFields: FieldConfig[];
   editingElement: Nullable<string>;
   formElementsCount: Record<EditorFormElementType, number>;
+  formEditorConfig: FormConfig;
 }
 
 export const initialState: FormEditorState = {
   selectedFormFields: [],
   editingElement: null,
   formElementsCount: {} as Record<EditorFormElementType, number>,
+  formEditorConfig: {} as FormConfig,
 };
 
 const formEditorSlice = createSlice({
@@ -32,11 +38,18 @@ const formEditorSlice = createSlice({
     ) => {
       state.editingElement = action.payload;
     },
+    setFormEditorConfig: (
+      state: FormEditorState,
+      action: PayloadAction<FormConfig>
+    ) => {
+      state.formEditorConfig = action.payload;
+    },
+
     addFieldWithCount: (
       state: FormEditorState,
       action: PayloadAction<EditorFormElementType>
     ) => {
-      const elementType = action.payload;
+      const elementType: EditorFormElementType = action.payload;
 
       const currentCount = state.formElementsCount[elementType] || 0;
       state.formElementsCount[elementType] = currentCount + 1;
@@ -66,6 +79,7 @@ export const {
   addSelectedFormField,
   setEditingElement,
   addFieldWithCount,
+  setFormEditorConfig,
   deleteSelectedFormField,
 } = formEditorSlice.actions;
 export default formEditorSlice.reducer;

@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { ComponentMapper } from "@/app/userRegistration/userRegistrationComponents/ComponentMapper";
 import { GenericForm } from "@/components/form/GenericForm/GenericForm";
+import { ComponentMapper } from "@/components/ui/ComponentMapper/ComponentMapper";
 import { FormConfig } from "@/types/GenericForm";
 
 const formConfig: FormConfig = {

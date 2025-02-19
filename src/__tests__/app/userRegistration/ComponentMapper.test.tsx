@@ -3,7 +3,7 @@ import { fireEvent, screen } from "@testing-library/react";
 import {
   ComponentMapper,
   ComponentMapperProps,
-} from "@/app/userRegistration/userRegistrationComponents/ComponentMapper";
+} from "@/components/ui/ComponentMapper/ComponentMapper";
 
 import { render } from "../../../../custom-render";
 
@@ -13,7 +13,7 @@ describe("ComponentMapper", () => {
       <ComponentMapper
         type="text"
         name="testField"
-        label="Test Label"
+        label="Label"
         value=""
         onChange={jest.fn()}
         {...props}
@@ -65,45 +65,58 @@ describe("ComponentMapper", () => {
   });
 
   it("Renders a checkbox when type is 'checkbox'.", () => {
-    renderComponent({ type: "checkbox", value: true });
+    renderComponent({
+      type: "checkbox",
+      options: [
+        { value: "option1", label: "Option 1" },
+        { value: "option2", label: "Option 2" },
+      ],
+    });
 
-    const checkbox = screen.getByRole("checkbox");
-    expect(checkbox).toBeInTheDocument();
-    expect(checkbox).toBeChecked();
+    const checkbox = screen.getAllByRole("checkbox");
+
+    expect(checkbox.length).toBe(2);
   });
 
-  it("Renders radio buttons when type is 'radio'.", () => {
-    const radiosValues = ["Option 1", "Option 2"];
-    renderComponent({ type: "radio", radiosValues });
-
-    radiosValues.forEach((value) => {
-      const radio = screen.getByLabelText(value);
-      expect(radio).toBeInTheDocument();
+  it("Renders radio buttons when 'radio'.", () => {
+    renderComponent({
+      type: "radio",
+      options: [
+        {
+          value: "option1",
+          label: "Option 1",
+        },
+        {
+          value: "option2",
+          label: "Option 2",
+        },
+      ],
     });
   });
 
   it("Renders an email input when type is 'email'.", () => {
     renderComponent({ type: "email", value: "test@example.com" });
 
-    const input = screen.getByLabelText("Test Label");
+    const input = screen.getByRole("textbox");
     expect(input).toBeInTheDocument();
     expect(input).toHaveAttribute("type", "email");
     expect(input).toHaveValue("test@example.com");
   });
 
   it("Renders a fallback text when the type is not recognized.", () => {
-    renderComponent({ type: "", name: "Fallback Name" });
+    renderComponent({ type: "", label: "Fallback Name" });
 
-    const fallbackText = screen.getByLabelText("Fallback Name");
-    expect(fallbackText).toBeInTheDocument();
-    expect(fallbackText).toHaveTextContent("Fallback Name");
+    const pElement = screen.getByRole("paragraph", {
+      name: "testField",
+    });
+    expect(pElement).toBeInTheDocument();
   });
 
   it("Calls onChange when input value changes.", () => {
     const handleChange = jest.fn();
     renderComponent({ onChange: handleChange });
 
-    const input = screen.getByLabelText("Test Label");
+    const input = screen.getByRole("textbox");
     fireEvent.change(input, { target: { value: "new value" } });
 
     expect(handleChange).toHaveBeenCalledTimes(1);

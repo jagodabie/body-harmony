@@ -10,7 +10,7 @@ import "./index.css";
 
 export type GenericFormProps<T extends FieldValues> = {
   formConfig: FormConfig;
-  onSubmit: (data: T) => void;
+  onSubmit?: (data: T) => void;
   componentMapper: React.ElementType;
 };
 
@@ -24,7 +24,7 @@ export const GenericForm = <T extends FieldValues>({
   return (
     <form
       role="form"
-      onSubmit={handleSubmit((data) => onSubmit(data))}
+      onSubmit={handleSubmit((data) => onSubmit && onSubmit(data))}
       style={{ width: formWidth ?? "100%" }}
     >
       <FormFields
@@ -34,7 +34,7 @@ export const GenericForm = <T extends FieldValues>({
       />
       <div className="form-submit">
         <Button variant="contained" type="submit" aria-label="Save form">
-          {saveButtonLabel}
+          {saveButtonLabel || "Save"}
         </Button>
         <Button
           variant="outlined"

@@ -35,7 +35,6 @@ export const ComponentMapper = ({
   label,
   variant,
   onChange,
-  radiosValues,
   options,
   multiline,
 }: ComponentMapperProps) => {
@@ -99,21 +98,42 @@ export const ComponentMapper = ({
       </FormControl>
     ),
     checkbox: (
-      <FormControlLabel
-        control={<Checkbox checked={!!value} onChange={onChange} name={name} />}
-        label={label}
-      />
+      <>
+        {options?.map(({ value: optionValue, label }, index) => (
+          <FormControlLabel
+            key={index}
+            control={
+              <Checkbox
+                checked={
+                  Array.isArray(value) ? value.includes(optionValue) : false
+                }
+                onChange={(event) => {
+                  const newValue = event.target.checked
+                    ? [...(Array.isArray(value) ? value : []), optionValue]
+                    : Array.isArray(value)
+                    ? value.filter((v) => v !== optionValue)
+                    : [];
+
+                  onChange?.(newValue);
+                }}
+                name={name}
+              />
+            }
+            label={label}
+          />
+        ))}
+      </>
     ),
     radio: (
       <FormControl>
         <FormLabel>{label}</FormLabel>
         <RadioGroup name={name}>
-          {radiosValues?.map((radioValue) => (
+          {options?.map((radioOption) => (
             <FormControlLabel
-              key={radioValue}
-              value={radioValue}
+              key={radioOption.value}
+              value={radioOption.value}
               control={<Radio />}
-              label={radioValue}
+              label={radioOption.label}
             />
           ))}
         </RadioGroup>
@@ -135,7 +155,7 @@ export const ComponentMapper = ({
   return (
     componentMap[type as FieldType] || (
       <p className="title-field" aria-label={name}>
-        {name}
+        {label || name}
       </p>
     )
   );
