@@ -1,8 +1,7 @@
 "use client";
 
 import { GenericForm } from "@/components/form/GenericForm/GenericForm";
-
-import { ComponentMapper } from "../formBuilder/editorFormElementsComponents/ElementMapper/ElementMapper";
+import { ComponentMapper } from "@/components/ui/ComponentMapper/ComponentMapper";
 
 import { userFormConfig, UserFormData } from ".";
 

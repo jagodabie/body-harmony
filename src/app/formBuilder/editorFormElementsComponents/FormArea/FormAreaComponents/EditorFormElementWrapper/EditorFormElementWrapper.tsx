@@ -7,7 +7,7 @@ import { useClickOutside } from "@/hooks/useClickOutsideHandler";
 import { setEditingElement } from "@/store/slices/formEditorSlice";
 import { FieldConfig } from "@/types/GenericForm";
 
-import { ComponentMapper } from "../../../ElementMapper/ElementMapper";
+import { ElementMapper } from "../../../ElementMapper/ElementMapper";
 
 import "./index.css";
 
@@ -52,7 +52,7 @@ export const EditorFormElementWrapper = ({
 
       {type !== "title" && (
         <>
-          <ComponentMapper type={type} name={name} control={control} />
+          <ElementMapper type={type} name={name} control={control} />
           <div className="editor-form-element-wrapper__label">
             <ControlledTextField
               controlledKey={`${name}-label`}

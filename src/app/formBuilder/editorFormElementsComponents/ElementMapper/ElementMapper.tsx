@@ -8,7 +8,7 @@ import { EditorFormSelect } from "./editorFormElements/editorFormElementsCompone
 import { OptionsBase } from "./editorFormElements/editorFormElementsComponents/OptionsBase";
 import "./index.css";
 
-export const ComponentMapper = ({
+export const ElementMapper = ({
   type,
   name,
   control,

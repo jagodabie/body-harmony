@@ -1,13 +1,13 @@
 import { Control } from "react-hook-form";
 
-import { ComponentMapper } from "@/app/formBuilder/editorFormElementsComponents/ElementMapper/ElementMapper";
+import { ElementMapper } from "@/app/formBuilder/editorFormElementsComponents/ElementMapper/ElementMapper";
 
 import { render } from "../../../../../../../custom-render";
 
-describe("ComponentMapper", () => {
+describe("ElementMapper", () => {
   it("Renders multiline element.", () => {
     const { container } = render(
-      <ComponentMapper
+      <ElementMapper
         type="multiline"
         name="test"
         control={undefined as unknown as Control}
@@ -19,7 +19,7 @@ describe("ComponentMapper", () => {
 
   it("Renders number element.", () => {
     const { getByText } = render(
-      <ComponentMapper
+      <ElementMapper
         type="number"
         name="test"
         control={undefined as unknown as Control}
@@ -31,7 +31,7 @@ describe("ComponentMapper", () => {
 
   it("Renders select element.", () => {
     const { container } = render(
-      <ComponentMapper
+      <ElementMapper
         type="select"
         name="select"
         control={undefined as unknown as Control}
@@ -42,7 +42,7 @@ describe("ComponentMapper", () => {
 
   it("Renders radio element.", () => {
     const { container } = render(
-      <ComponentMapper
+      <ElementMapper
         type="radio"
         name="radio-radio"
         control={undefined as unknown as Control}
@@ -54,7 +54,7 @@ describe("ComponentMapper", () => {
 
   it("Renders checkbox element.", () => {
     const { container } = render(
-      <ComponentMapper
+      <ElementMapper
         type="checkbox"
         name="checkbox-checkbox"
         control={undefined as unknown as Control}
@@ -68,7 +68,7 @@ describe("ComponentMapper", () => {
 
   it("Renders default element for unknown type.", () => {
     const { container } = render(
-      <ComponentMapper
+      <ElementMapper
         type=""
         name="test"
         control={undefined as unknown as Control}
