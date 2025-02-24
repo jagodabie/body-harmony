@@ -10,19 +10,23 @@ const commonStyles = {
   "--radius-1": "1px",
   "--radius-4": "4px",
   "--error": " rgb(214, 60, 39)",
+
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
-  justifyContent: "space-between",
+  justifyContent: "flex-start",
   body: {
     background: "#f8f8fb",
     fontSize: "var(--font-family)",
   },
+  header: {
+    marginBottom: "2rem",
+  },
   main: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
     textAlign: "center",
     "& > *": {
       width: "100%",
@@ -72,6 +76,8 @@ export const lightTheme = createTheme({
           "--text-primary": "#17202a",
           "--text-placeholder": "#616161",
           "--primary-main": "#0070f3",
+          "--goldenrod": "#DAA520",
+          "--primary-light": "rgb(0, 167, 240)",
           "--box-shadow": "0 0 10px 0 rgba(0, 0, 0, 0.1)",
           "--border-primary": "2px solid ",
           "--border-bold": "2px solid #ccc",

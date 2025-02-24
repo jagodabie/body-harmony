@@ -1,0 +1,5 @@
+.form-table-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}

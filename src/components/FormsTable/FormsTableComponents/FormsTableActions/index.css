@@ -1,0 +1,10 @@
+.table-actions {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.table-actions > * {
+  display: block;
+  margin: 6px;
+}
