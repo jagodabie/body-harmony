@@ -1,6 +1,10 @@
-import { FieldConfig, FieldType, Option } from "@/types/GenericForm";
+import {
+  FieldConfig,
+  FieldType,
+  FormConfig,
+  Option,
+} from "@/types/GenericForm";
 
-// TODO: label zamiast pytania idzie
 export const mapDataToConfigFields = (data: Record<string, string>) => {
   const groupedElements: Record<string, FieldConfig[]> = {};
   const optionsMap: Record<string, Option[]> = {};
@@ -9,15 +13,15 @@ export const mapDataToConfigFields = (data: Record<string, string>) => {
     if (key.endsWith("-label") || key.endsWith("-question")) {
       const baseName = key.replace(/-(label|question)$/, "");
       const suffix = key.endsWith("-label") ? "label" : "question";
-      const type: FieldType =
-        suffix === "label" ? (baseName.split("-")[0] as FieldType) : "";
+      const type: FieldType | "question" =
+        suffix === "label" ? (baseName.split("-")[0] as FieldType) : "question";
 
       if (!groupedElements[baseName]) {
         groupedElements[baseName] = [];
       }
 
       groupedElements[baseName].push({
-        type,
+        type: type === "question" ? "" : type,
         label: data[key],
         name: key,
       });
@@ -68,4 +72,13 @@ export const createLabelsListToUnregister = (elementName: string): string[] => {
   }
 
   return baseFields;
+};
+
+export const createFormConfig = (data: Record<string, string>): FormConfig => {
+  return {
+    formTitle: data["formTitle"] || "",
+    saveButtonLabel: data["saveButtonLabel"] || "",
+    fieldConfig: mapDataToConfigFields(data) || [],
+    formWidth: data["formWidth"] || "100%",
+  };
 };
