@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { Control } from "react-hook-form";
 
-import { EditorFormElementWrapperWithActions } from "@/app/formBuilder/editorFormElementsComponents/FormArea/FormAreaComponents/EditorFormElementWrapperWithActions/EditorFormElementWrapperWithActions";
+import { EditorFormElementWrapperWithActions } from "@/app/form/[formId]/editorFormElementsComponents/FormArea/FormAreaComponents/EditorFormElementWrapperWithActions/EditorFormElementWrapperWithActions";
 
 import { render } from "../../../../../../../../../custom-render";
 
@@ -11,6 +11,7 @@ describe("EditorFormElementWrapperWithActions", () => {
       <EditorFormElementWrapperWithActions
         control={undefined as unknown as Control}
         element={{ name: "text", label: "text", type: "text" }}
+        unregister={jest.fn()}
       />
     );
 

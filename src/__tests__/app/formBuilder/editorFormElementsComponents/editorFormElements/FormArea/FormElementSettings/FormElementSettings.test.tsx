@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { FormElementSettings } from "@/app/formBuilder/editorFormElementsComponents/FormElementSettings/FormElementSettings";
+import { FormElementSettings } from "@/app/form/[formId]/editorFormElementsComponents/FormElementSettings/FormElementSettings";
 import { useAppSelector } from "@/hooks/useAppDispatch";
 
 import { render } from "../../../../../../../../custom-render";

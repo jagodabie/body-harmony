@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { Control } from "react-hook-form";
 
-import { OptionsBase } from "@/app/formBuilder/editorFormElementsComponents/ElementMapper/editorFormElements/editorFormElementsComponents/OptionsBase";
+import { OptionsBase } from "@/app/form/[formId]/editorFormElementsComponents/ElementMapper/editorFormElements/editorFormElementsComponents/OptionsBase";
 
 import { render } from "../../../../../../../../../custom-render";
 

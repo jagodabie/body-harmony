@@ -4,11 +4,12 @@ import { Control, useForm } from "react-hook-form";
 import { EditableControlledTextField } from "@/components/ui/EditableControlledTextField/EditableControlledTextField";
 import { useAppDispatch, useAppSelector } from "@/hooks/useAppDispatch";
 import { setFormEditorConfig } from "@/store/slices/formEditorSlice";
-import { mapDataToConfigFields } from "@/utils";
+import { createFormConfig, mapDataToConfigFields } from "@/utils";
 
 import { EditorFormElementWrapperWithActions } from "../FormAreaComponents/EditorFormElementWrapperWithActions/EditorFormElementWrapperWithActions";
 
 import "./index.css";
+import { saveFormConfig } from "@/lib/db";
 
 export const EditorFormArea = () => {
   const { handleSubmit, control, unregister } = useForm();
@@ -23,11 +24,10 @@ export const EditorFormArea = () => {
   return (
     <form
       role="form"
-      onSubmit={handleSubmit((data) => {
-        console.log(mapDataToConfigFields(data), "data ======>>>");
-        dispatch(
-          setFormEditorConfig({ fieldConfig: mapDataToConfigFields(data) })
-        );
+      onSubmit={handleSubmit(async (data) => {
+        const formConfig = createFormConfig(data);
+        await saveFormConfig(formConfig);
+        dispatch(setFormEditorConfig(formConfig));
       })}
     >
       <div className="editor-form-area__container">

@@ -1,6 +1,6 @@
 import { Control } from "react-hook-form";
 
-import { ElementMapper } from "@/app/formBuilder/editorFormElementsComponents/ElementMapper/ElementMapper";
+import { ElementMapper } from "@/app/form/[formId]/editorFormElementsComponents/ElementMapper/ElementMapper";
 
 import { render } from "../../../../../../../custom-render";
 

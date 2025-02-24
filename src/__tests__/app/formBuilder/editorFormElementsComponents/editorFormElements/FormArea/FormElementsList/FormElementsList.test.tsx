@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import fireEvent from "@testing-library/user-event";
 
-import { FormElementsList } from "@/app/formBuilder/editorFormElementsComponents/FormElementsList/FormElementsList";
+import { FormElementsList } from "@/app/form/[formId]/editorFormElementsComponents/FormElementsList/FormElementsList";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { elementsList } from "@/lib/inputsElementsList";
 import { addFieldWithCount } from "@/store/slices/formEditorSlice";

@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import FormBuilder from "@/app/formBuilder/page";
+import FormBuilder from "@/app/form/[formId]/page";
 
 import { render } from "../../../../custom-render";
 

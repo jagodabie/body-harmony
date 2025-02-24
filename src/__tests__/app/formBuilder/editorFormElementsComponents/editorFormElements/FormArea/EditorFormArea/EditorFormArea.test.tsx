@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { EditorFormArea } from "@/app/formBuilder/editorFormElementsComponents/FormArea/EditorFormArea/EditorFormArea";
+import { EditorFormArea } from "@/app/form/[formId]/editorFormElementsComponents/FormArea/EditorFormArea/EditorFormArea";
 
 import { render } from "../../../../../../../../custom-render";
 

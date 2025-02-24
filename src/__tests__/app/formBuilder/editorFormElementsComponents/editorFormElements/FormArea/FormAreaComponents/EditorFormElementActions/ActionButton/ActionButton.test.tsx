@@ -1,6 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react";
 
-import { ActionButton } from "@/app/formBuilder/editorFormElementsComponents/FormArea/FormAreaComponents/EditorFormElementActions/ActionButton/ActionButton";
+import { ActionButton } from "@/app/form/[formId]/editorFormElementsComponents/FormArea/FormAreaComponents/EditorFormElementActions/ActionButton/ActionButton";
 import { DeleteIcon } from "@/assets/DeleteIcon";
 import { SettingsIcon } from "@/assets/SettingsIcon";
 

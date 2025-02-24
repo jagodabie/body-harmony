@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { Control } from "react-hook-form";
 
-import { EditorFormElementWrapper } from "@/app/formBuilder/editorFormElementsComponents/FormArea/FormAreaComponents/EditorFormElementWrapper/EditorFormElementWrapper";
+import { EditorFormElementWrapper } from "@/app/form/[formId]/editorFormElementsComponents/FormArea/FormAreaComponents/EditorFormElementWrapper/EditorFormElementWrapper";
 import { FieldConfig } from "@/types/GenericForm";
 
 import { render } from "../../../../../../../../../custom-render";

@@ -1,12 +1,12 @@
 import { screen } from "@testing-library/react";
 
-import { EditorFormElementActions } from "@/app/formBuilder/editorFormElementsComponents/FormArea/FormAreaComponents/EditorFormElementActions/EditorFormElementActions";
+import { EditorFormElementActions } from "@/app/form/[formId]/editorFormElementsComponents/FormArea/FormAreaComponents/EditorFormElementActions/EditorFormElementActions";
 
 import { render } from "../../../../../../../../../custom-render";
 
 describe("EditorFormElementActions", () => {
   it("Renders correctly with provided props.", () => {
-    render(<EditorFormElementActions id="1" />);
+    render(<EditorFormElementActions unregister={jest.fn()} id="1" />);
     const deleteButton = screen.getByRole("button", { name: "delete" });
     expect(deleteButton).toBeInTheDocument();
 

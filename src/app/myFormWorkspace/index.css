@@ -1,0 +1,8 @@
+.form-workspace {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-workspace__container {
+  min-height: 50vh;
+}
