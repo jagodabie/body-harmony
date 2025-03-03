@@ -1,3 +1,4 @@
+"use client";
 import { Control } from "react-hook-form";
 
 import { FieldConfig } from "@/types/GenericForm";

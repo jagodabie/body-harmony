@@ -1,6 +1,8 @@
+"use client";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import "./index.css";
+
 export const SelectLabel = ({
   isActive,
   setIsActive,
