@@ -38,8 +38,12 @@ export type FieldConfig = {
 };
 
 export type FormConfig = {
+  id?: string;
   formTitle?: string;
   saveButtonLabel?: string;
-  fieldConfig: FieldConfig[];
+  fieldConfig?: FieldConfig[];
   formWidth?: string;
+  isSynced?: boolean;
+  updatedAt?: string;
+  createdAt?: string;
 };

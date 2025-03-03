@@ -16,3 +16,9 @@ export type NavItem = {
   label: string;
   href: string;
 };
+
+export interface TableRow {
+  id: number;
+  favorite: boolean;
+  formName: string;
+}
