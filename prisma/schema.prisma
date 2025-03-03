@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Form {
+  id              String  @id @default(uuid())
+  formTitle       String?
+  saveButtonLabel String?
+  formWidth       String?
+  isSynced        Boolean @default(true)
+  createdAt       DateTime @default(now())
+  fieldConfig     Field[] @relation("FormToFields")
+}
+
+model Field {
+  id        String @id @default(uuid())
+  createdAt DateTime @default(now())
+  formId    String
+  name      String
+  type      String?
+  variant   String?
+  label     String?
+  multiline Boolean?
+  xs        Int?
+  md        Int?
+  options   Json? 
+  form      Form @relation("FormToFields", fields: [formId], references: [id])
+}

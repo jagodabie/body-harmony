@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Form` ADD COLUMN `isSynced` BOOLEAN NOT NULL DEFAULT true;

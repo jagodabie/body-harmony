@@ -3,13 +3,13 @@ import { useState } from "react";
 
 import { elementsList } from "@/lib/inputsElementsList";
 
-import { EditorFormArea } from "./editorFormElementsComponents/FormArea/EditorFormArea/EditorFormArea";
+import { EditorFormArea } from "./EditorFormArea/EditorFormArea";
 import { FormElementSettings } from "./editorFormElementsComponents/FormElementSettings/FormElementSettings";
 import { FormElementsList } from "./editorFormElementsComponents/FormElementsList/FormElementsList";
 import { FormPreview } from "./editorFormElementsComponents/FormPreview/FormPreview";
 import "./index.css";
 
-const FormBuilder = () => {
+const FormEditor = () => {
   const [isPreview, setIsPreview] = useState(false);
 
   return (
@@ -40,4 +40,4 @@ const FormBuilder = () => {
   );
 };
 
-export default FormBuilder;
+export default FormEditor;

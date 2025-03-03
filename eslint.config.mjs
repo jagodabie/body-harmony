@@ -19,6 +19,7 @@ const eslintConfig = [
       import: pluginImport,
     },
     rules: {
+      "react/display-name": "off",
       "import/order": [
         "error",
         {
