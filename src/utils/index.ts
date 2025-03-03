@@ -22,8 +22,8 @@ export const mapDataToConfigFields = (data: Record<string, string>) => {
 
       groupedElements[baseName].push({
         type: type === "question" ? "" : type,
-        label: data[key],
-        name: key,
+        label: data[key] ?? "",
+        name: key ?? "",
       });
     }
 
@@ -35,8 +35,8 @@ export const mapDataToConfigFields = (data: Record<string, string>) => {
         optionsMap[baseName] = [];
       }
       optionsMap[baseName].push({
-        value: key.split("-")[2],
-        label: data[key],
+        value: key.split("-")[2] || "",
+        label: data[key] || "",
       });
     }
   });
