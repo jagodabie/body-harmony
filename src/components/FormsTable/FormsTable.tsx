@@ -1,27 +1,31 @@
 "use client";
 
-import { DataGrid } from "@mui/x-data-grid";
-import "./index.css";
+import { DataGrid, GridRenderCellParams } from "@mui/x-data-grid";
+
+import { useAppSelector } from "@/hooks/useAppDispatch";
+
 import { FavoriteForm } from "./FormsTableComponents/FavoriteForm/FavoriteForm";
 import FormsTableActions from "./FormsTableComponents/FormsTableActions/FormsTableActions";
 
-const renderFavorite = (params: any) => (
+const renderFavorite = (params: GridRenderCellParams) => (
   <FavoriteForm isFavorite={params.row.favorite} />
 );
-const renderActions = (params: any) => <FormsTableActions id={params.row.id} />;
+const renderActions = (params: GridRenderCellParams) => (
+  <FormsTableActions id={params.row.id} />
+);
 
 const columns = [
   {
     field: "favorite",
     headerName: "Favorite",
     flex: 1,
-    renderCell: renderFavorite, // Teraz `renderCell` nie jest funkcją inline
+    renderCell: renderFavorite,
   },
   {
     field: "formName",
     headerName: "Form Name",
     flex: 3,
-    renderCell: (params: any) => <div>{params.value}</div>,
+    renderCell: (params: GridRenderCellParams) => <div>{params.value}</div>,
     editable: true,
   },
   {
@@ -33,27 +37,24 @@ const columns = [
   },
 ];
 
-// TODO: for now hardcoded data
-const rows = [
-  { id: 1, favorite: false, formName: "Form 1" },
-  { id: 2, favorite: true, formName: "Form 2" },
-  { id: 3, favorite: false, formName: "Form 3" },
-  { id: 4, favorite: true, formName: "Form 4" },
-  { id: 5, favorite: false, formName: "Form 5" },
-];
-
 const paginationModel = { page: 0, pageSize: 10 };
 
 export const FormsTable = () => {
+  const { formConfigs, isLoading } = useAppSelector(
+    ({ formConfigs }) => formConfigs
+  );
+  // TODO: Implement favorite form feature
+
   return (
     <DataGrid
-      rows={rows}
+      rows={formConfigs}
       columns={columns}
+      loading={isLoading}
       initialState={{ pagination: { paginationModel } }}
       pageSizeOptions={[5, 10]}
       checkboxSelection
       paginationMode="server"
-      rowCount={rows.length}
+      rowCount={formConfigs.length}
       sx={{
         margin: "1rem 0",
         border: "1px solid #ddd",

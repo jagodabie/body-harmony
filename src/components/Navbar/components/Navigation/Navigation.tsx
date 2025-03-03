@@ -7,6 +7,7 @@ type NavigationProps = {
   isMenuOpen: boolean;
 };
 
+// TODO: fix visibility on different screen sizes
 export const Navigation = ({ navItems, isMenuOpen }: NavigationProps) => {
   return (
     <nav>
