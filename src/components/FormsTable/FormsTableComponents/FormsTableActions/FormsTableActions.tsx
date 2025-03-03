@@ -1,16 +1,26 @@
+import { useRouter } from "next/navigation";
 import React, { memo } from "react";
+import { useDispatch } from "react-redux";
+
 import { DeleteIcon } from "@/assets/DeleteIcon";
 import { EditIcon } from "@/assets/EditIcon";
-import { useRouter } from "next/navigation";
+import { deleteFormConfigById } from "@/services/formConfigsService";
 
 import "./index.css";
-import { deleteFormConfig } from "@/lib/db";
 
 const FormsTableActions = ({ id }: { id: number }) => {
   const router = useRouter();
 
-  const handleDeleteClick = () => {
-    console.log(`Delete item with id: ${id}`);
+  const dispatch = useDispatch();
+
+  const handleDeleteClick = async () => {
+    const result = await deleteFormConfigById(id, dispatch);
+
+    if (result.success) {
+      alert("Form deleted successfully");
+    } else {
+      alert("Error while deleting form");
+    }
   };
 
   return (
@@ -24,13 +34,7 @@ const FormsTableActions = ({ id }: { id: number }) => {
         <EditIcon size={24} color="var(--primary-main)" />
       </div>
 
-      <div
-        className="table-actions__delete"
-        onClick={async () => {
-          await deleteFormConfig(id);
-          alert("Form deleted successfully");
-        }}
-      >
+      <div className="table-actions__delete" onClick={handleDeleteClick}>
         <DeleteIcon size={24} color="var(--error)" />
       </div>
     </div>
