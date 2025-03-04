@@ -39,7 +39,7 @@ export type FieldConfig = {
 
 export type FormConfig = {
   id?: string;
-  formTitle?: string;
+  formTitle?: string | null;
   saveButtonLabel?: string;
   fieldConfig?: FieldConfig[];
   formWidth?: string;

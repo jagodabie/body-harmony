@@ -27,7 +27,7 @@ export async function addFormConfig(formConfig?: FormConfig) {
   return id;
 }
 
-export async function getFormConfig(id: number) {
+export async function getFormConfig(id: string) {
   const db = await initDB();
   return await db.get(STORE_NAME, id);
 }

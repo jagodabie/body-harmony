@@ -1,7 +1,5 @@
 "use server";
 
-// import { create } from "domain"; // Removed unused import
-
 import { FormConfig } from "@/types/GenericForm";
 
 import { db } from "./db";
@@ -10,26 +8,42 @@ export async function getFormConfigs() {
   return (await db.form.findMany()).map((formConfig) => ({
     ...formConfig,
     createdAt: formConfig.createdAt?.toString(),
+    updatedAt: formConfig.updatedAt?.toString(),
   }));
 }
 
+export async function getFormConfigById(id: string) {
+  const formConfig = await db.form.findUnique({
+    where: { id },
+  });
+
+  if (!formConfig) return null;
+
+  return {
+    ...formConfig,
+    createdAt: formConfig.createdAt?.toString(),
+    updatedAt: formConfig.updatedAt?.toString(),
+  };
+}
+
 export async function createFormConfig(formConfig?: FormConfig) {
-  return await db.form
-    .create({
-      data: {
-        ...formConfig,
-        isSynced: true,
-        fieldConfig: { create: [] },
-      },
-    })
-    .then((formConfig) => ({
+  const createdForm = await db.form.create({
+    data: {
       ...formConfig,
-      createdAt: formConfig?.createdAt?.toString(),
-    }));
+      isSynced: true,
+      fieldConfig: { create: [] },
+    },
+  });
+
+  return {
+    ...createdForm,
+    createdAt: createdForm.createdAt?.toString(),
+    updatedAt: createdForm.updatedAt?.toString(),
+  };
 }
 
 export async function updateFormConfig(id: string, formConfig: FormConfig) {
-  return await db.form.update({
+  const updatedForm = await db.form.update({
     where: { id },
     data: {
       fieldConfig: {
@@ -48,10 +62,22 @@ export async function updateFormConfig(id: string, formConfig: FormConfig) {
       },
     },
   });
+
+  return {
+    ...updatedForm,
+    createdAt: updatedForm.createdAt?.toString(),
+    updatedAt: updatedForm.updatedAt?.toString(),
+  };
 }
 
 export async function deleteFormConfig(id: number) {
-  return await db.form.delete({
+  const deletedForm = await db.form.delete({
     where: { id: id.toString() },
   });
+
+  return {
+    ...deletedForm,
+    createdAt: deletedForm.createdAt?.toString(),
+    updatedAt: deletedForm.updatedAt?.toString(),
+  };
 }

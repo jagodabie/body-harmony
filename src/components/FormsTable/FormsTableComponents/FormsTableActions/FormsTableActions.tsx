@@ -1,3 +1,4 @@
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { useRouter } from "next/navigation";
 import React, { memo } from "react";
 import { useDispatch } from "react-redux";
@@ -25,6 +26,14 @@ const FormsTableActions = ({ id }: { id: number }) => {
 
   return (
     <div className="table-actions">
+      <div
+        className="table-actions__view"
+        onClick={() => {
+          router.push(`/form/${id}?preview=true`);
+        }}
+      >
+        <RemoveRedEyeIcon sx={{ color: "var(--text-primary)" }} />
+      </div>
       <div
         className="table-actions__edit"
         onClick={() => {

@@ -1,5 +1,9 @@
 "use client";
-import { useState } from "react";
+import CreateIcon from "@mui/icons-material/Create";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import { Button } from "@mui/material";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { elementsList } from "@/lib/inputsElementsList";
 
@@ -10,18 +14,29 @@ import { FormPreview } from "./editorFormElementsComponents/FormPreview/FormPrev
 import "./index.css";
 
 const FormEditor = () => {
-  const [isPreview, setIsPreview] = useState(false);
+  const [preview, setPreview] = useState(false);
+
+  const searchParams = useSearchParams();
+  const isPreview = searchParams.get("preview") === "true";
+
+  useEffect(() => {
+    setPreview(isPreview);
+  }, [isPreview]);
 
   return (
     <div className="form-builder">
       <div className="form-builder__preview">
-        <h3>{isPreview ? "Preview Mode" : "Editor Mode"}</h3>
-        <button onClick={() => setIsPreview((prev) => !prev)}>
-          {isPreview ? "Back to Edit" : "Preview Form"}
-        </button>
+        <Button
+          onClick={() => setPreview((prev) => !prev)}
+          variant="contained"
+          color="primary"
+          startIcon={preview ? <CreateIcon /> : <VisibilityIcon />}
+        >
+          {preview ? "Edit" : "Preview"}
+        </Button>
       </div>
 
-      {isPreview ? (
+      {preview ? (
         <FormPreview />
       ) : (
         <div className="form-builder__container">
