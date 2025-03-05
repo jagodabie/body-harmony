@@ -1,3 +1,5 @@
+import { useFormContext } from "react-hook-form";
+
 import { DeleteIcon } from "@/assets/DeleteIcon";
 import { SettingsIcon } from "@/assets/SettingsIcon";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
@@ -7,14 +9,15 @@ import { createLabelsListToUnregister } from "@/utils";
 import { ActionButton } from "./ActionButton/ActionButton";
 import "./index.css";
 
+export type EditorFormElementActionsProps = {
+  id: string;
+};
+
 export const EditorFormElementActions = ({
   id,
-  unregister,
-}: {
-  id: string;
-  unregister: (name: string) => void;
-}) => {
+}: EditorFormElementActionsProps) => {
   const dispatch = useAppDispatch();
+  const { unregister } = useFormContext();
 
   return (
     <div className="editor-form-element-actions">
@@ -24,7 +27,6 @@ export const EditorFormElementActions = ({
         tooltipText="Delete"
         onClick={async () => {
           await dispatch(deleteSelectedFormField(id));
-
           createLabelsListToUnregister(id).forEach((name) => unregister(name));
         }}
         IconComponent={DeleteIcon}

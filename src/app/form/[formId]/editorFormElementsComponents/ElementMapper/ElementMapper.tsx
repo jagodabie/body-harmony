@@ -1,23 +1,23 @@
 import { ReactElement } from "react";
-import { Control } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
-import { ComponentMapperProps } from "@/components/ui/ComponentMapper/ComponentMapper";
-import { EditorFormElementType } from "@/types/GenericForm";
+import { EditorFormElementType, FieldType } from "@/types/GenericForm";
 
 import { EditorFormSelect } from "./editorFormElements/editorFormElementsComponents/EditorFormSelect/EditorFormSelect";
 import { OptionsBase } from "./editorFormElements/editorFormElementsComponents/OptionsBase";
 import "./index.css";
 
-export const ElementMapper = ({
-  type,
-  name,
-  control,
-}: ComponentMapperProps & {
-  control: Control;
-}) => {
+type ElementMapperProps = {
+  type: FieldType | EditorFormElementType;
+  name: string;
+};
+
+export const ElementMapper = ({ type, name }: ElementMapperProps) => {
   // TODO: for now we are using the same options for radio and checkbox
 
   const radioOptions = ["option1", "option2", "option3", "option4"];
+
+  const { control } = useFormContext();
 
   const componentMap: Record<string, ReactElement | ""> = {
     multiline: <div className="element multiline"></div>,

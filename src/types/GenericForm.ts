@@ -47,3 +47,7 @@ export type FormConfig = {
   updatedAt?: string;
   createdAt?: string;
 };
+
+export type FormValues = {
+  formTitle: string;
+};

@@ -22,7 +22,7 @@ export const mapDataToConfigFields = (data: Record<string, string>) => {
 
       groupedElements[baseName].push({
         type: type === "question" ? "" : type,
-        label: data[key] ?? "",
+        label: data[key] || (type === "question" ? "Type your question" : ""),
         name: key ?? "",
       });
     }

@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Control, useWatch } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 
 import { ControlledTextField } from "../ControlledTextField/ControlledTextField";
 
 type EditableControlledTextFieldProps = {
-  control: Control;
   controlledKey: string;
   name: string;
   customStyles?: Record<string, unknown>;
@@ -19,7 +18,6 @@ import "./index.css";
 
 export const EditableControlledTextField = ({
   controlledKey,
-  control,
   name,
   customStyles,
   placeholder = "Type something...",
@@ -30,6 +28,8 @@ export const EditableControlledTextField = ({
   const [isEditing, setIsEditing] = useState(!readOnly);
 
   const handleToggle = () => setIsEditing((prev) => !prev);
+
+  const { control } = useFormContext();
 
   const value = useWatch({
     control,
@@ -42,7 +42,6 @@ export const EditableControlledTextField = ({
         <ControlledTextField
           controlledKey={controlledKey}
           name={name}
-          control={control}
           onBlur={handleToggle}
           onEnter={handleToggle}
           placeholder={placeholder}

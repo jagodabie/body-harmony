@@ -1,25 +1,22 @@
 "use client";
 import { Grid } from "@mui/material";
-import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import { Controller, Path, useFormContext } from "react-hook-form";
 
 import { FieldConfig } from "@/types/GenericForm";
 
-type FormFieldProps<T extends FieldValues> = {
+type FormFieldProps = {
   formConfigItem: FieldConfig;
-  control: Control<T>;
   Component: React.ElementType;
 };
 
-const FormField = <T extends FieldValues>({
-  formConfigItem,
-  control,
-  Component,
-}: FormFieldProps<T>) => {
+const FormField = ({ formConfigItem, Component }: FormFieldProps) => {
+  const { control } = useFormContext();
+
   return (
     <Controller
       key={formConfigItem.name}
       control={control}
-      name={formConfigItem.name as Path<T>}
+      name={formConfigItem.name as Path<unknown>}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <Grid item xs={formConfigItem.xs || 12} md={formConfigItem.md || 12}>
           <Component

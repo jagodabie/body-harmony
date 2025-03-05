@@ -1,6 +1,5 @@
 "use client";
 import { useRef } from "react";
-import { Control } from "react-hook-form";
 
 import { ElementMapper } from "@/app/form/[formId]/editorFormElementsComponents/ElementMapper/ElementMapper";
 import { ControlledTextField } from "@/components/ui/ControlledTextField/ControlledTextField";
@@ -13,11 +12,9 @@ import "./index.css";
 
 type EditorFormElementProps = {
   element: FieldConfig;
-  control: Control;
 };
 
 export const EditorFormElementWrapper = ({
-  control,
   element: { type, name },
 }: EditorFormElementProps) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -45,19 +42,17 @@ export const EditorFormElementWrapper = ({
         <ControlledTextField
           controlledKey={`${name}-question`}
           name={`${name}-question`}
-          control={control}
           placeholder="Type question"
         />
       </div>
 
       {type !== "title" && (
         <>
-          <ElementMapper type={type} name={name} control={control} />
+          <ElementMapper type={type!} name={name} />
           <div className="editor-form-element-wrapper__label">
             <ControlledTextField
               controlledKey={`${name}-label`}
               name={`${name}-label`}
-              control={control}
               placeholder="Type input label"
             />
           </div>
